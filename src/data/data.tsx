@@ -90,8 +90,14 @@ export const heroData: Hero = {
   ),
   actions: [
     {
-      href: 'assets/Resume.pdf',
-      text: 'Resume',
+      href: 'assets/Resume_short.pdf',
+      text: 'Resume (short)',
+      primary: true,
+      Icon: DownloadIcon,
+    },
+    {
+      href: 'assets/Resume_long.pdf',
+      text: 'Resume (long)',
       primary: true,
       Icon: DownloadIcon,
     },
@@ -299,6 +305,17 @@ export const education: TimelineItem[] = [
 ];
 
 export const experience: TimelineItem[] = [
+  {   
+    date: '2022.6 - Present',
+    location: 'Independent',
+    title: 'Multi-modal 3D Object Detection in autonomous driving scenario',
+    content: (
+      <ul>
+      <li>-iterature review of existing general 3D object detection algorithms including camera-based, point-based, voxel-based, and multi-model algorithms.</li>
+      <li>-Reproduce and improve existing camera-only and multi-model 3D object detection algorithms (Pseudo-LiDAR, Lidar Painting, Bev fusion).</li>
+      </ul>
+    ),
+  },
   {
     date: '2022.5 - Present',
     location: 'Advanced Integrated Cyber-Physical Systems Lab, University of California, Irvine',
@@ -324,17 +341,6 @@ embeddings in linear distance.</li>
 better aligns with the real-world trajectory.</li>
       </ul>
     ),
-  },
-  {   
-  date: '2022.6 - 2022.8',
-  location: 'Independent',
-  title: 'Multi-modal 3D Object Detection in autonomous driving scenario',
-  content: (
-    <ul>
-    <li>-iterature review of existing general 3D object detection algorithms including camera-based, point-based, voxel-based, and multi-model algorithms.</li>
-    <li>--	Run experiments on camera-only nad multi-model 3D object detection algorithms (Pseudo-LiDAR, Lidar Painting, Bev fusion).</li>
-    </ul>
-  ),
   },
   
   {
@@ -381,6 +387,45 @@ classification accuracy and ~0.76 mean precision error.</li>
   }
 ];
 
+// export const experience: TimelineItem[] = [
+//   {   
+//     date: '2022.6 - Present',
+//     location: 'Independent',
+//     title: 'Multi-modal 3D Object Detection in autonomous driving scenario',
+//     content: (<div></div>),
+//     },
+//   {
+//     date: '2022.5 - Present',
+//     location: 'Advanced Integrated Cyber-Physical Systems Lab, University of California, Irvine',
+//     title: 'Auto-generated graphical model in the autonomous driving system',
+//     content: (<div></div>),
+//   },
+//   {
+//     date: '2022.2 - 2022.6',
+//     location: 'Intelligent Dynamics Lab, University of California, Irvine',
+//     title: 'Goal-conditional Reinforcement Learning',
+//     content: (<div></div>),
+//   },
+//   {
+//     date: '2021.4 - 2022.11',
+//     location: 'Institute of Computer Vision, Shenzen University, China',
+//     title: 'Adversarial Attack with Semantic Pattern',
+//     content: (<div></div>),
+//   },
+//   {
+//     date: '2021.4 - 2022.11',
+//     location: 'Institute of Computer Vision, Shenzen University, China',
+//     title: 'Long-tailed Cervical Cell Detection',
+//     content: (<div></div>),
+//   },
+//   {
+//     date: '2020.9 - 2022.4',
+//     location: 'Donald Bren Hall, University of California, Irvine',
+//     title: <div><a className='text-cyan-700' href='https://zotbins.github.io/'>ZerO</a> Waste Anteaters</div>,
+//     content: (<div></div>),
+//   }
+// ];
+
 
 export const employment: TimelineItem[] = [
   {
@@ -388,12 +433,17 @@ export const employment: TimelineItem[] = [
     location: 'Tandll Investment Management Limited, China',
     title: 'Full-stack Software developer',
     content: (
-      <p>
-        -	Built a quantitative trading support website using Python (Django & React) and MySQL, 
-        which supported high-level trading management, 
-        model parameters modification, and historical data & behaviors Visualization
-      </p>
+    <p>
+      -Built a quantitative trading support website using Python (Django & React) and MySQL, which supported high-level trading management, model parameters modification, and historical data & behaviors Visualization</p>
     )
+  },
+  {
+    date: '2019.2 - 2019.7',
+    location: 'Calit 2, University of California, Irvine',
+    title: 'VR Software developer',
+    content: (<p>
+      -Worked with a team of 6 to Develop a simple-to-understand VR teaching aid of MA6 Mask Aligner, which enables students to use the machine without physically getting into the clean room.
+    </p>)
   }
 ]
 
@@ -492,8 +542,8 @@ export const contact: ContactSection = {
   items: [
     {
       type: ContactType.Email,
-      text: 'xiangbog@uci.edu',
-      href: 'mailto:xiangbog@uci.edu',
+      text: 'xiangbogaobarry@gmail.com',
+      href: 'mailto:xiangbogaobarry@gmail.com',
     },
     {
       type: ContactType.Location,
