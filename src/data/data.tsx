@@ -102,6 +102,12 @@ export const heroData: Hero = {
       Icon: DownloadIcon,
     },
     {
+      href: 'assets/Resume_chinese.pdf',
+      text: '简历（中文）',
+      primary: true,
+      Icon: DownloadIcon,
+    },
+    {
       href: `#${SectionId.Contact}`,
       text: 'Contact',
       primary: false,
