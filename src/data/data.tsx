@@ -120,15 +120,15 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: myImage,
-  description: `I am a current senior undergraduate student at the University of California, Irvine. 
+  description: `I am a current masterstudent at the University of Micigan - Ann Arbor.
   My research focus on deep learning and its applications such as computer vision and autonomous system. 
-  I am currently looking for MS/PhD and internship opportunities`,
+  I am currently looking for internship opportunities in Robotics and Autonomous Driving.`,
   aboutItems: [
-    {label: 'Location', text: 'Irvine, CA', Icon: MapIcon},
-    {label: 'Age', text: '22', Icon: CalendarIcon},
+    {label: 'Location', text: 'Ann Arbor, MI', Icon: MapIcon},
+    {label: 'Age', text: '23', Icon: CalendarIcon},
     {label: 'Nationality', text: 'China', Icon: FlagIcon},
     {label: 'Interests', text: 'Skiing, Rock climbing', Icon: SparklesIcon},
-    {label: 'Study', text: 'University of California, Irvine', Icon: AcademicCapIcon},
+    {label: 'Study', text: 'University of Micigan - Ann Arbor', Icon: AcademicCapIcon},
     // {label: 'Employment', text: 'Instant Domains, inc.', Icon: OfficeBuildingIcon},
   ],
 };
@@ -297,6 +297,12 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
+    date: '2023.9 - PRESENT',
+    location: 'University of Michigan, Ann Arbor',
+    title: 'Robotics M.S. Student',
+    content: <p> </p>,
+  },
+  {
     date: '2018.9 - 2023.3',
     location: 'University of California, Irvine',
     title: 'B.S. in Computer Science | B.S. in Mathematics',
@@ -434,6 +440,20 @@ classification accuracy and ~0.76 mean precision error.</li>
 
 
 export const employment: TimelineItem[] = [
+  				         
+ 
+  {
+    date: '2023.4 - 2023.7',
+    location: 'Anhui Cowa ROBOT Co., Ltd, Shanghai, China',
+    title: 'Perception Research Intern',
+    content: (
+    <ul>
+      <li>-Online HD Map Construction with Flow Map Prior (3.2% higher mAP than the baseline) </li>
+      <li>-Motion Prediction with Historical Trajectories Clustering</li>
+    </ul>
+    
+    )
+  },
   {
     date: '2020.6 - 2020.8',
     location: 'Tandll Investment Management Limited, China',
@@ -454,6 +474,16 @@ export const employment: TimelineItem[] = [
 ]
 
 export const competitions: TimelineItem[] = [
+  {
+    date: '2023.5',
+    location: 'N/A',
+    title: 'CVPR Camera-based online HD map construction challenge 2023',
+    content: (
+      <p>
+        Result: Rank 13th in <a className='italic text-cyan-700 hover:not-italic' href='https://github.com/XiangboGaoBarry/UCI-Hackathon-GPA/blob/master/democode_GPA_UCIhackthon.ipynb'>subproject</a> of <a className='italic text-cyan-700 hover:not-italic' href='https://github.com/Tsinghua-MARS-Lab/Online-HD-Map-Construction-CVPR2023'>CVPR Camera-based online HD map construction challenge 2023</a> 
+      </p>
+    )
+  },
   {
     date: '2020.4',
     location: 'University of California, Irvine, CA, USA',
