@@ -95,12 +95,12 @@ export const heroData: Hero = {
       primary: true,
       Icon: DownloadIcon,
     },
-    {
-      href: 'assets/Resume_long.pdf',
-      text: 'Resume (long)',
-      primary: true,
-      Icon: DownloadIcon,
-    },
+    // {
+    //   href: 'assets/Resume_long.pdf',
+    //   text: 'Resume (long)',
+    //   primary: true,
+    //   Icon: DownloadIcon,
+    // },
     {
       href: 'assets/Resume_chinese.pdf',
       text: '简历（中文）',
@@ -371,12 +371,12 @@ and robustness with respect to various types of defense algorithms.</li>
     ),
   },
   {
-    date: '2021.4 - 2022.11',
+    date: '2021.4 - 2022.1',
     location: 'Institute of Computer Vision, Shenzen University, China',
     title: 'Long-tailed Cervical Cell Detection',
     content: (
       <ul>
-      <li>-Assisted to propose a Grad-Libra Loss that leverages the gradients to dynamically
+      <li>-Propose a Grad-Libra Loss that leverages the gradients to dynamically
 calibrate the hardness of each sample and rebalanced their gradients..</li>
       <li>-Published work <a className='italic text-cyan-700 hover:not-italic' href='https://www.researchgate.net/profile/Xuechen-Li-5/publication/362567778_Sample_hardness_based_gradient_loss_for_long-tailed_cervical_cell_detection/links/632807bc071ea12e36443214/Sample-hardness-based-gradient-loss-for-long-tailed-cervical-cell-detection.pdf'> Sample Hardness Based Gradient Loss for Long-Tailed Cervical Cell Detection.</a> </li>
       </ul>
@@ -537,7 +537,7 @@ export const selected: PublicationItem[] = [
     authors: 'Minmin Liu, Xuechen Li, Xiangbo Gao, Junliang Chen, Linlin Shen, Huisi Wu',
     conference: 'Medical Image Computing and Computer Assisted Intervention – MICCAI 2022',
     paperlink: 'https://arxiv.org/pdf/2208.03779.pdf',
-    paperlinksmall: 'assets/documents/publications/Gradient-Libra-Loss.pdf',
+    paperlinksmall: 'assets/documents/publications/GradientLibraLoss.pdf',
     githublink: '',
     description: 'Due to the difficulty of cancer samples collection and annotation, cervical cancer datasets usually exhibit a long-tailed data distribution. When training a detector to detect the cancer cells in a WSI (Whole Slice Image) image captured from the TCT (Thinprep Cytology Test) specimen, head categories (e.g. normal cells and inflammatory cells) typically have a much larger number of samples than tail categories (e.g. cancer cells). Most existing state-of-the-art long-tailed learning methods in object detection focus on category distribution statistics to solve the problem in the long-tailed scenario without considering the "hardness" of each sample. To address this problem, in this work we propose a Grad-Libra Loss that leverages the gradients to dynamically calibrate the degree of hardness of each sample for different categories, and re-balance the gradients of positive and negative samples. Our loss can thus help the detector to put more emphasis on those hard samples in both head and tail categories. Extensive experiments on a long-tailed TCT WSI image dataset show that the mainstream detectors, e.g. RepPoints, FCOS, ATSS, YOLOF, etc. trained using our proposed Gradient-Libra Loss, achieved much higher (7.8%) mAP than that trained using cross-entropy classification loss.'
   }
