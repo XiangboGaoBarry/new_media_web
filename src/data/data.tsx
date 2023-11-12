@@ -480,7 +480,7 @@ export const competitions: TimelineItem[] = [
     title: 'CVPR Camera-based online HD map construction challenge 2023',
     content: (
       <p>
-        Result: Rank 13th in <a className='italic text-cyan-700 hover:not-italic' href='https://github.com/XiangboGaoBarry/UCI-Hackathon-GPA/blob/master/democode_GPA_UCIhackthon.ipynb'>subproject</a> of <a className='italic text-cyan-700 hover:not-italic' href='https://github.com/Tsinghua-MARS-Lab/Online-HD-Map-Construction-CVPR2023'>CVPR Camera-based online HD map construction challenge 2023</a> 
+        Result: Rank 13th in <a className='italic text-cyan-700 hover:not-italic' href='https://github.com/Tsinghua-MARS-Lab/Online-HD-Map-Construction-CVPR2023'>CVPR Camera-based online HD map construction challenge 2023</a> 
       </p>
     )
   },
