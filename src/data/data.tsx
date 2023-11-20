@@ -450,10 +450,10 @@ export const employment: TimelineItem[] = [
     <ul>
       <li>-Online HD Map Construction with Flow Map Prior (3.2% higher mAP than the baseline) </li>
       <ul>
-        <li>-Propose to use historical vehicle trajectories as prior</li>
-        <li>-Reproduce the neural map prior and allivate the catastrophic forgetting problem by adding noise and dummy features.</li>
-        <li>-Propose Keypoints DTW Loss to increase the consistency of the regression loss</li>  
-        <li>-Inspired by BevFormerV2, implement 2D auxiliary keypoints detection to further boost the accuracy.</li>
+        <li>---Propose to use historical vehicle trajectories as prior</li>
+        <li>---Reproduce the neural map prior and allivate the catastrophic forgetting problem by adding noise and dummy features.</li>
+        <li>---Propose Keypoints DTW Loss to increase the consistency of the regression loss</li>  
+        <li>---Inspired by BevFormerV2, implement 2D auxiliary keypoints detection to further boost the accuracy.</li>
       </ul>
       <li>-Motion Prediction with Historical Trajectories Clustering</li>
     </ul>
