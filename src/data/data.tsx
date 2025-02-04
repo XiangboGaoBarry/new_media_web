@@ -37,7 +37,7 @@ import TimeManager from '../images/portfolio/TimeManager.png';
 import GeometicPoseAffordance from '../images/portfolio/GeometicPoseAffordance.png';
 import PQAttackImg from '../images/publications/PQGAN.png';
 import GradientLibraLossImg from '../images/publications/LibraLoss.png';
-import MambaSTImg from '../images/publications/MambaST.png';
+import MambaSTImg from '../images/publications/mambaST.png';
 import AutoTrustImg from '../images/publications/autoTrust.png';
 import STAMPImg from '../images/publications/STAMP.png';
 
