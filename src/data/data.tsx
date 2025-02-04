@@ -8,8 +8,8 @@ import {
   SparklesIcon,
 } from '@heroicons/react/outline';
 
-import { FaTwitter } from 'react-icons/fa';
-import { SiZhihu } from 'react-icons/si';
+import {FaTwitter} from 'react-icons/fa';
+import {SiZhihu} from 'react-icons/si';
 import GithubIcon from '../components/Icon/GithubIcon';
 import GoogleScholarIcon from '../components/Icon/GoogleScholarIcon';
 // import InstagramIcon from '../components/Icon/InstagramIcon';
