@@ -13,8 +13,8 @@ const Header: FC = memo(() => {
   const [currentSection, setCurrentSection] = useState<SectionId | null>(null);
   const navSections = useMemo(
     () => [SectionId.About, 
-      SectionId.Resume, 
       SectionId.Publications,
+      SectionId.Resume, 
       SectionId.Portfolio, 
       SectionId.Contact],
     [],

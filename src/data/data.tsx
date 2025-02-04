@@ -8,6 +8,8 @@ import {
   SparklesIcon,
 } from '@heroicons/react/outline';
 
+import { FaTwitter } from 'react-icons/fa';
+import { SiZhihu } from 'react-icons/si';
 import GithubIcon from '../components/Icon/GithubIcon';
 import GoogleScholarIcon from '../components/Icon/GoogleScholarIcon';
 // import InstagramIcon from '../components/Icon/InstagramIcon';
@@ -33,9 +35,9 @@ import AutoSortTrashBin from '../images/portfolio/AutoSortTrashBin.png';
 import WasteRecognition from '../images/portfolio/WasteRecognition.png';
 import TimeManager from '../images/portfolio/TimeManager.png';
 import GeometicPoseAffordance from '../images/portfolio/GeometicPoseAffordance.png';
-import PQAttackImg from '../images/publications/PQAttack.png';
-import GradientLibraLossImg from '../images/publications/Gradient-Libra-Loss.png';
-import MambaSTImg from '../images/publications/mambaST.png';
+import PQAttackImg from '../images/publications/PQGAN.png';
+import GradientLibraLossImg from '../images/publications/LibraLoss.png';
+import MambaSTImg from '../images/publications/MambaST.png';
 import AutoTrustImg from '../images/publications/autoTrust.png';
 import STAMPImg from '../images/publications/STAMP.png';
 
@@ -95,7 +97,7 @@ export const heroData: Hero = {
   actions: [
     {
       href: 'assets/Resume_short.pdf',
-      text: 'Resume (short)',
+      text: 'Resume (short)(2024.3)',
       primary: true,
       Icon: DownloadIcon,
     },
@@ -107,7 +109,7 @@ export const heroData: Hero = {
     // },
     {
       href: 'assets/Resume_chinese.pdf',
-      text: '简历（中文）',
+      text: '简历（中文）(2024.3)',
       primary: true,
       Icon: DownloadIcon,
     },
@@ -124,15 +126,13 @@ export const heroData: Hero = {
  */
 export const aboutData: About = {
   profileImageSrc: myImage,
-  description: `I am a current masterstudent at the University of Micigan - Ann Arbor.
-  My research focus on deep learning and its applications such as computer vision and autonomous system. 
-  I am currently looking for internship opportunities in Robotics and Autonomous Driving.`,
+  description: `Autonomous Driving | Multi-agent Collaborative Perception | Aerial & Grounded Agent Cooperation | Current PhD @ TAMU | MS @ Umich | BS @ UCI`,
   aboutItems: [
-    {label: 'Location', text: 'Ann Arbor, MI', Icon: MapIcon},
-    {label: 'Age', text: '23', Icon: CalendarIcon},
+    {label: 'Location', text: 'Texas A&M University, College Station, TX', Icon: MapIcon},
+    {label: 'Age', text: '25', Icon: CalendarIcon},
     {label: 'Nationality', text: 'China', Icon: FlagIcon},
     {label: 'Interests', text: 'Skiing, Rock climbing', Icon: SparklesIcon},
-    {label: 'Study', text: 'University of Micigan - Ann Arbor', Icon: AcademicCapIcon},
+    {label: 'Study', text: 'Texas A&M University, College Station, TX', Icon: AcademicCapIcon},
     // {label: 'Employment', text: 'Instant Domains, inc.', Icon: OfficeBuildingIcon},
   ],
 };
@@ -302,7 +302,7 @@ export const portfolioItems: PortfolioItem[] = [
 export const education: TimelineItem[] = [
   {
     date: '2025.1 - Present',
-    location: 'texas a&m university',
+    location: 'Texas A&M University',
     title: 'Computer Science Ph.D. Candidate',
     content: <p> </p>,
   },
@@ -326,94 +326,94 @@ export const education: TimelineItem[] = [
   },
 ];
 
-export const experience: TimelineItem[] = [
-  {   
-    date: '2022.6 - Present',
-    location: 'Independent',
-    title: 'Multi-modal 3D Object Detection in autonomous driving scenario',
-    content: (
-      <p></p>
-      // <ul>
-      // <li>-iterature review of existing general 3D object detection algorithms including camera-based, point-based, voxel-based, and multi-model algorithms.</li>
-      // <li>-Reproduce and improve existing camera-only and multi-model 3D object detection algorithms (Pseudo-LiDAR, Lidar Painting, Bev fusion).</li>
-      // </ul>
-    ),
-  },
-  {
-    date: '2022.5 - Present',
-    location: 'Advanced Integrated Cyber-Physical Systems Lab, University of California, Irvine',
-    title: 'Auto-generated graphical model in the autonomous driving system',
-    content: (
-      <p></p>
-      // <ul>
-      // <li>-Designed and created a multi-domain autonomous driving dataset for different driving scenarios using CARLA simulator.</li>
-      // <li>-Designed a probabilistic LSTM structure that encodes states to variational embeddings. Transferred the knowledge from PointNet to encode the unordered lane marks information.</li>
-      // <li>-Evaluating the model performance and cross-domain transferability by various metrics and comparing them with other motion prediction algorithms (MTP, PGP, Trajectron++, etc.)</li>
-      // </ul>
-    ),
-  },
-  {
-    date: '2022.2 - 2022.6',
-    location: 'Intelligent Dynamics Lab, University of California, Irvine',
-    title: 'Goal-conditional Reinforcement Learning',
-    content: (
-      <p></p>
-//       <ul>
-//       <li>-Reviewed literature on imitation learning and general reinforcement learning.</li>
-//       <li>-Come up with spring loss which uses the idea of contrastive learning that aligns the
-// embeddings in linear distance.</li>
-//       <li>-Visualization by the PCA dimension reduction method shows that the learned embedding
-// better aligns with the real-world trajectory.</li>
-//       </ul>
-    ),
-  },
+// export const experience: TimelineItem[] = [
+//   {   
+//     date: '2022.6 - Present',
+//     location: 'Independent',
+//     title: 'Multi-modal 3D Object Detection in autonomous driving scenario',
+//     content: (
+//       <p></p>
+//       // <ul>
+//       // <li>-iterature review of existing general 3D object detection algorithms including camera-based, point-based, voxel-based, and multi-model algorithms.</li>
+//       // <li>-Reproduce and improve existing camera-only and multi-model 3D object detection algorithms (Pseudo-LiDAR, Lidar Painting, Bev fusion).</li>
+//       // </ul>
+//     ),
+//   },
+//   {
+//     date: '2022.5 - Present',
+//     location: 'Advanced Integrated Cyber-Physical Systems Lab, University of California, Irvine',
+//     title: 'Auto-generated graphical model in the autonomous driving system',
+//     content: (
+//       <p></p>
+//       // <ul>
+//       // <li>-Designed and created a multi-domain autonomous driving dataset for different driving scenarios using CARLA simulator.</li>
+//       // <li>-Designed a probabilistic LSTM structure that encodes states to variational embeddings. Transferred the knowledge from PointNet to encode the unordered lane marks information.</li>
+//       // <li>-Evaluating the model performance and cross-domain transferability by various metrics and comparing them with other motion prediction algorithms (MTP, PGP, Trajectron++, etc.)</li>
+//       // </ul>
+//     ),
+//   },
+//   {
+//     date: '2022.2 - 2022.6',
+//     location: 'Intelligent Dynamics Lab, University of California, Irvine',
+//     title: 'Goal-conditional Reinforcement Learning',
+//     content: (
+//       <p></p>
+// //       <ul>
+// //       <li>-Reviewed literature on imitation learning and general reinforcement learning.</li>
+// //       <li>-Come up with spring loss which uses the idea of contrastive learning that aligns the
+// // embeddings in linear distance.</li>
+// //       <li>-Visualization by the PCA dimension reduction method shows that the learned embedding
+// // better aligns with the real-world trajectory.</li>
+// //       </ul>
+//     ),
+//   },
   
-  {
-    date: '2021.4 - 2022.11',
-    location: 'Institute of Computer Vision, Shenzen University, China',
-    title: 'Adversarial Attack with Semantic Pattern',
-    content: (
-      <p></p>
-//       <ul>
-//       <li>-Proposed a novel Patch Quilting Generative Adversarial Network (PQ-GAN) training strategy
-// that learned a set of cascaded generators to manipulate image patterns of varying scales
-// without distortion or discontinuity.</li>
-//       <li>-Applied the PQ-GAN to adversarial attacks that delivered state-of-the-art attack strength
-// and robustness with respect to various types of defense algorithms.</li>
-//       <li>-Published work <a className='italic text-cyan-700 hover:not-italic' href='https://arxiv.org/pdf/2208.06222.pdf'> Scale-free and Task-agnostic Attack: Generating Photo-realistic Adversarial Patterns with Patch Quilting Generator.</a> </li>
-//       </ul>
-    ),
-  },
-  {
-    date: '2021.4 - 2022.1',
-    location: 'Institute of Computer Vision, Shenzen University, China',
-    title: 'Long-tailed Cervical Cell Detection',
-    content: (
-      <p></p>
-//       <ul>
-//       <li>-Propose a Grad-Libra Loss that leverages the gradients to dynamically
-// calibrate the hardness of each sample and rebalanced their gradients..</li>
-//       <li>-Published work <a className='italic text-cyan-700 hover:not-italic' href='https://www.researchgate.net/profile/Xuechen-Li-5/publication/362567778_Sample_hardness_based_gradient_loss_for_long-tailed_cervical_cell_detection/links/632807bc071ea12e36443214/Sample-hardness-based-gradient-loss-for-long-tailed-cervical-cell-detection.pdf'> Sample Hardness Based Gradient Loss for Long-Tailed Cervical Cell Detection.</a> </li>
-//       </ul>
-    ),
-  },
-  {
-    date: '2020.9 - 2022.4',
-    location: 'Donald Bren Hall, University of California, Irvine',
-    title: <div><a className='text-cyan-700' href='https://zotbins.github.io/'>ZerO</a> Waste Anteaters</div>,
-    content: (
-      <p></p>
-//       <ul>
-//       <li>-Led a team of 8 members to explore waste recognition solutions.</li>
-//       <li>-Designed a computer vision and waste recognition tutorial that stimulate students' interests.</li>
-//       <li>-Trained light-weight models for waste image classification (Mobilenetv3, ShuffleNet, and
-// EfficientNet) and waste object detection (Faster-RCNN and YOLOv5); achieved ~0.94
-// classification accuracy and ~0.76 mean precision error.</li>
-//       <li>-Deployed the waste recognition models to resource-limited machines (Jetson Nano)</li>
-//       </ul>
-    ),
-  }
-];
+//   {
+//     date: '2021.4 - 2022.11',
+//     location: 'Institute of Computer Vision, Shenzen University, China',
+//     title: 'Adversarial Attack with Semantic Pattern',
+//     content: (
+//       <p></p>
+// //       <ul>
+// //       <li>-Proposed a novel Patch Quilting Generative Adversarial Network (PQ-GAN) training strategy
+// // that learned a set of cascaded generators to manipulate image patterns of varying scales
+// // without distortion or discontinuity.</li>
+// //       <li>-Applied the PQ-GAN to adversarial attacks that delivered state-of-the-art attack strength
+// // and robustness with respect to various types of defense algorithms.</li>
+// //       <li>-Published work <a className='italic text-cyan-700 hover:not-italic' href='https://arxiv.org/pdf/2208.06222.pdf'> Scale-free and Task-agnostic Attack: Generating Photo-realistic Adversarial Patterns with Patch Quilting Generator.</a> </li>
+// //       </ul>
+//     ),
+//   },
+//   {
+//     date: '2021.4 - 2022.1',
+//     location: 'Institute of Computer Vision, Shenzen University, China',
+//     title: 'Long-tailed Cervical Cell Detection',
+//     content: (
+//       <p></p>
+// //       <ul>
+// //       <li>-Propose a Grad-Libra Loss that leverages the gradients to dynamically
+// // calibrate the hardness of each sample and rebalanced their gradients..</li>
+// //       <li>-Published work <a className='italic text-cyan-700 hover:not-italic' href='https://www.researchgate.net/profile/Xuechen-Li-5/publication/362567778_Sample_hardness_based_gradient_loss_for_long-tailed_cervical_cell_detection/links/632807bc071ea12e36443214/Sample-hardness-based-gradient-loss-for-long-tailed-cervical-cell-detection.pdf'> Sample Hardness Based Gradient Loss for Long-Tailed Cervical Cell Detection.</a> </li>
+// //       </ul>
+//     ),
+//   },
+//   {
+//     date: '2020.9 - 2022.4',
+//     location: 'Donald Bren Hall, University of California, Irvine',
+//     title: <div><a className='text-cyan-700' href='https://zotbins.github.io/'>ZerO</a> Waste Anteaters</div>,
+//     content: (
+//       <p></p>
+// //       <ul>
+// //       <li>-Led a team of 8 members to explore waste recognition solutions.</li>
+// //       <li>-Designed a computer vision and waste recognition tutorial that stimulate students' interests.</li>
+// //       <li>-Trained light-weight models for waste image classification (Mobilenetv3, ShuffleNet, and
+// // EfficientNet) and waste object detection (Faster-RCNN and YOLOv5); achieved ~0.94
+// // classification accuracy and ~0.76 mean precision error.</li>
+// //       <li>-Deployed the waste recognition models to resource-limited machines (Jetson Nano)</li>
+// //       </ul>
+//     ),
+//   }
+// ];
 
 // export const experience: TimelineItem[] = [
 //   {   
@@ -572,7 +572,7 @@ export const onsubmission: PublicationItem[] = [
     paperlink: 'https://arxiv.org/abs/2412.15206',
     paperlinksmall: 'https://arxiv.org/abs/2412.15206',
     githublink: 'https://github.com/taco-group/autotrust?tab=readme-ov-file',
-    description: '' ,
+    description: 'AutoTrust is a groundbreaking benchmark designed to assess the trustworthiness of DriveVLMs. This work aims to enhance public safety by ensuring DriveVLMs operate reliably across critical dimensions.' ,
     projectpage: 'https://taco-group.github.io/AutoTrust/',
   },
 
@@ -583,11 +583,11 @@ export const selected: PublicationItem[] = [
     title: 'STAMP: Scalable Task- And Model-agnostic Collaborative Perception',
     imageSrc: STAMPImg,
     authors: 'Xiangbo Gao, Runsheng Xu, Jiachen Li, Ziran Wang, Zhiwen Fan, Zhengzhong Tu',
-    conference: 'ITSC 2024',
+    conference: 'ICLR 2025',
     paperlink: 'https://arxiv.org/abs/2501.18616',
     paperlinksmall: 'https://arxiv.org/abs/2501.18616',
     githublink: 'https://github.com/taco-group/STAMP',
-    description: '' ,
+    description: 'STAMP is a new framework for multi-agent collaborative perception in autonomous driving that enables diverse vehicles to share sensor data efficiently. Using adapter-reverter pairs to convert between agent-specific and shared feature formats in Bird`s Eye View, it achieves better accuracy than existing methods while reducing computational costs and maintaining security across heterogeneous systems.' ,
     projectpage: 'https://xiangbogaobarry.github.io/STAMP/',
   },
   {
@@ -598,7 +598,7 @@ export const selected: PublicationItem[] = [
     paperlink: 'https://arxiv.org/abs/2408.01037',
     paperlinksmall: 'https://arxiv.org/abs/2408.01037',
     githublink: 'https://github.com/XiangboGaoBarry/MambaST',
-    description: '',
+    description: 'MambaST is a new framework for pedestrian detection that combines RGB and thermal camera data while leveraging temporal information. It uses a novel Multi-head Hierarchical Patching and Aggregation structure with state space models to efficiently process multi-spectral data, achieving better results on small-scale detection while being more computationally efficient than transformer-based approaches.',
     projectpage: '',
   },
   {
@@ -610,7 +610,7 @@ export const selected: PublicationItem[] = [
     paperlinksmall: 'assets/documents/publications/PQAttack.pdf',
     githublink: 'https://github.com/XiangboGaoBarry/PQAttack',
     // description: 'Traditional L_p norm-restricted image attack algorithms suffer from poor transferability to black box scenarios and poor robustness to defense algorithms. Recent CNN generator-based attack approaches can synthesize unrestricted and semantically meaningful entities to the image, which is shown to be transferable and robust. However, such methods attack images by either synthesizing local adversarial entities, which are only suitable for attacking specific contents or performing global attacks, which are only applicable to a specific image scale. In this paper, we propose a novel Patch Quilting Generative Adversarial Networks (PQ-GAN) to learn the first scale-free CNN generator that can be applied to attack images with arbitrary scales for various computer vision tasks. The principal investigation on transferability of the generated adversarial examples, robustness to defense frameworks, and visual quality assessment show that the proposed PQG-based attack framework outperforms the other nine state-of-the-art adversarial attack approaches when attacking the neural networks trained on two standard evaluation datasets (i.e., ImageNet and CityScapes).' 
-    description: '',
+    description: 'PQ-GAN is a novel scale-free generator for adversarial attacks that works on images of any size. Unlike previous methods limited to local or fixed-scale attacks, it demonstrates superior transferability, defense resistance, and visual quality when tested against other attack methods on ImageNet and CityScapes datasets.',
     projectpage: '',
   },
   {
@@ -622,7 +622,7 @@ export const selected: PublicationItem[] = [
     paperlinksmall: 'assets/documents/publications/Gradient-Libra-Loss.pdf',
     githublink: '',
     // description: 'Due to the difficulty of cancer samples collection and annotation, cervical cancer datasets usually exhibit a long-tailed data distribution. When training a detector to detect the cancer cells in a WSI (Whole Slice Image) image captured from the TCT (Thinprep Cytology Test) specimen, head categories (e.g. normal cells and inflammatory cells) typically have a much larger number of samples than tail categories (e.g. cancer cells). Most existing state-of-the-art long-tailed learning methods in object detection focus on category distribution statistics to solve the problem in the long-tailed scenario without considering the "hardness" of each sample. To address this problem, in this work we propose a Grad-Libra Loss that leverages the gradients to dynamically calibrate the degree of hardness of each sample for different categories, and re-balance the gradients of positive and negative samples. Our loss can thus help the detector to put more emphasis on those hard samples in both head and tail categories. Extensive experiments on a long-tailed TCT WSI image dataset show that the mainstream detectors, e.g. RepPoints, FCOS, ATSS, YOLOF, etc. trained using our proposed Gradient-Libra Loss, achieved much higher (7.8%) mAP than that trained using cross-entropy classification loss.'
-    description: '',
+    description: 'A new Grad-Libra Loss method improves cancer cell detection in imbalanced cervical cancer datasets by adjusting for both sample difficulty and category distribution, achieving 7.8% better accuracy than standard approaches.',
     projectpage: '',
   }
 ];
@@ -667,7 +667,7 @@ export const contact: ContactSection = {
     },
     {
       type: ContactType.Location,
-      text: 'Irvine, CA',
+      text: 'Texas A&M University, College Station, TX',
       // href: 'https://www.google.ca/maps/place/Victoria,+BC/@48.4262362,-123.376775,14z',
     },
     // {
@@ -688,9 +688,12 @@ export const contact: ContactSection = {
  */
 export const socialLinks: Social[] = [
   {label: 'Github', Icon: GithubIcon, href: 'https://github.com/XiangboGaoBarry'},
-  {label: 'Google Scholar', Icon: GoogleScholarIcon, href: 'https://scholar.google.com/citations?user=dcw41CcAAAAJ&hl=en'},
+  {label: 'Google Scholar', Icon: GoogleScholarIcon, href: 'https://scholar.google.com/citations?user=bSpZc84AAAAJ&hl=en'},
   // {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/8553186/tim-baker'},
   {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/xiangbo-gao-9ab24417a/'},
+  {label: 'X', Icon: FaTwitter, href: 'https://x.com/XiangboGao'},
+  {label: 'zhihu', Icon: SiZhihu, href: 'https://www.zhihu.com/people/gao-xiang-bo-35'},
+  
   // {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/tbakerx/'},
   // {label: 'Twitter', Icon: TwitterIcon, href: 'https://twitter.com/TimBakerx'},
 ];
