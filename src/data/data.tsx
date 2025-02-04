@@ -35,6 +35,10 @@ import TimeManager from '../images/portfolio/TimeManager.png';
 import GeometicPoseAffordance from '../images/portfolio/GeometicPoseAffordance.png';
 import PQAttackImg from '../images/publications/PQAttack.png';
 import GradientLibraLossImg from '../images/publications/Gradient-Libra-Loss.png';
+import MambaSTImg from '../images/publications/mambaST.png';
+import AutoTrustImg from '../images/publications/autoTrust.png';
+import STAMPImg from '../images/publications/STAMP.png';
+
 import {
   About,
   ContactSection,
@@ -297,7 +301,13 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
-    date: '2023.9 - PRESENT',
+    date: '2025.1 - Present',
+    location: 'texas a&m university',
+    title: 'Computer Science Ph.D. Candidate',
+    content: <p> </p>,
+  },
+  {
+    date: '2023.9 - 2024.12',
     location: 'University of Michigan, Ann Arbor',
     title: 'Robotics M.S. Student',
     content: <p> </p>,
@@ -306,13 +316,13 @@ export const education: TimelineItem[] = [
     date: '2018.9 - 2023.3',
     location: 'University of California, Irvine',
     title: 'B.S. in Computer Science | B.S. in Mathematics',
-    content: <p>GPA 3.72/4</p>,
+    content: <p></p>,
   },
   {
     date: '2019.6 - 2019.9',
     location: 'University of California, Berkeley',
     title: 'Summer Session',
-    content: <p>GPA 3.566/4</p>,
+    content: <p></p>,
   },
 ];
 
@@ -322,10 +332,11 @@ export const experience: TimelineItem[] = [
     location: 'Independent',
     title: 'Multi-modal 3D Object Detection in autonomous driving scenario',
     content: (
-      <ul>
-      <li>-iterature review of existing general 3D object detection algorithms including camera-based, point-based, voxel-based, and multi-model algorithms.</li>
-      <li>-Reproduce and improve existing camera-only and multi-model 3D object detection algorithms (Pseudo-LiDAR, Lidar Painting, Bev fusion).</li>
-      </ul>
+      <p></p>
+      // <ul>
+      // <li>-iterature review of existing general 3D object detection algorithms including camera-based, point-based, voxel-based, and multi-model algorithms.</li>
+      // <li>-Reproduce and improve existing camera-only and multi-model 3D object detection algorithms (Pseudo-LiDAR, Lidar Painting, Bev fusion).</li>
+      // </ul>
     ),
   },
   {
@@ -333,11 +344,12 @@ export const experience: TimelineItem[] = [
     location: 'Advanced Integrated Cyber-Physical Systems Lab, University of California, Irvine',
     title: 'Auto-generated graphical model in the autonomous driving system',
     content: (
-      <ul>
-      <li>-Designed and created a multi-domain autonomous driving dataset for different driving scenarios using CARLA simulator.</li>
-      <li>-Designed a probabilistic LSTM structure that encodes states to variational embeddings. Transferred the knowledge from PointNet to encode the unordered lane marks information.</li>
-      <li>-Evaluating the model performance and cross-domain transferability by various metrics and comparing them with other motion prediction algorithms (MTP, PGP, Trajectron++, etc.)</li>
-      </ul>
+      <p></p>
+      // <ul>
+      // <li>-Designed and created a multi-domain autonomous driving dataset for different driving scenarios using CARLA simulator.</li>
+      // <li>-Designed a probabilistic LSTM structure that encodes states to variational embeddings. Transferred the knowledge from PointNet to encode the unordered lane marks information.</li>
+      // <li>-Evaluating the model performance and cross-domain transferability by various metrics and comparing them with other motion prediction algorithms (MTP, PGP, Trajectron++, etc.)</li>
+      // </ul>
     ),
   },
   {
@@ -345,13 +357,14 @@ export const experience: TimelineItem[] = [
     location: 'Intelligent Dynamics Lab, University of California, Irvine',
     title: 'Goal-conditional Reinforcement Learning',
     content: (
-      <ul>
-      <li>-Reviewed literature on imitation learning and general reinforcement learning.</li>
-      <li>-Come up with spring loss which uses the idea of contrastive learning that aligns the
-embeddings in linear distance.</li>
-      <li>-Visualization by the PCA dimension reduction method shows that the learned embedding
-better aligns with the real-world trajectory.</li>
-      </ul>
+      <p></p>
+//       <ul>
+//       <li>-Reviewed literature on imitation learning and general reinforcement learning.</li>
+//       <li>-Come up with spring loss which uses the idea of contrastive learning that aligns the
+// embeddings in linear distance.</li>
+//       <li>-Visualization by the PCA dimension reduction method shows that the learned embedding
+// better aligns with the real-world trajectory.</li>
+//       </ul>
     ),
   },
   
@@ -360,14 +373,15 @@ better aligns with the real-world trajectory.</li>
     location: 'Institute of Computer Vision, Shenzen University, China',
     title: 'Adversarial Attack with Semantic Pattern',
     content: (
-      <ul>
-      <li>-Proposed a novel Patch Quilting Generative Adversarial Network (PQ-GAN) training strategy
-that learned a set of cascaded generators to manipulate image patterns of varying scales
-without distortion or discontinuity.</li>
-      <li>-Applied the PQ-GAN to adversarial attacks that delivered state-of-the-art attack strength
-and robustness with respect to various types of defense algorithms.</li>
-      <li>-Published work <a className='italic text-cyan-700 hover:not-italic' href='https://arxiv.org/pdf/2208.06222.pdf'> Scale-free and Task-agnostic Attack: Generating Photo-realistic Adversarial Patterns with Patch Quilting Generator.</a> </li>
-      </ul>
+      <p></p>
+//       <ul>
+//       <li>-Proposed a novel Patch Quilting Generative Adversarial Network (PQ-GAN) training strategy
+// that learned a set of cascaded generators to manipulate image patterns of varying scales
+// without distortion or discontinuity.</li>
+//       <li>-Applied the PQ-GAN to adversarial attacks that delivered state-of-the-art attack strength
+// and robustness with respect to various types of defense algorithms.</li>
+//       <li>-Published work <a className='italic text-cyan-700 hover:not-italic' href='https://arxiv.org/pdf/2208.06222.pdf'> Scale-free and Task-agnostic Attack: Generating Photo-realistic Adversarial Patterns with Patch Quilting Generator.</a> </li>
+//       </ul>
     ),
   },
   {
@@ -375,11 +389,12 @@ and robustness with respect to various types of defense algorithms.</li>
     location: 'Institute of Computer Vision, Shenzen University, China',
     title: 'Long-tailed Cervical Cell Detection',
     content: (
-      <ul>
-      <li>-Propose a Grad-Libra Loss that leverages the gradients to dynamically
-calibrate the hardness of each sample and rebalanced their gradients..</li>
-      <li>-Published work <a className='italic text-cyan-700 hover:not-italic' href='https://www.researchgate.net/profile/Xuechen-Li-5/publication/362567778_Sample_hardness_based_gradient_loss_for_long-tailed_cervical_cell_detection/links/632807bc071ea12e36443214/Sample-hardness-based-gradient-loss-for-long-tailed-cervical-cell-detection.pdf'> Sample Hardness Based Gradient Loss for Long-Tailed Cervical Cell Detection.</a> </li>
-      </ul>
+      <p></p>
+//       <ul>
+//       <li>-Propose a Grad-Libra Loss that leverages the gradients to dynamically
+// calibrate the hardness of each sample and rebalanced their gradients..</li>
+//       <li>-Published work <a className='italic text-cyan-700 hover:not-italic' href='https://www.researchgate.net/profile/Xuechen-Li-5/publication/362567778_Sample_hardness_based_gradient_loss_for_long-tailed_cervical_cell_detection/links/632807bc071ea12e36443214/Sample-hardness-based-gradient-loss-for-long-tailed-cervical-cell-detection.pdf'> Sample Hardness Based Gradient Loss for Long-Tailed Cervical Cell Detection.</a> </li>
+//       </ul>
     ),
   },
   {
@@ -387,14 +402,15 @@ calibrate the hardness of each sample and rebalanced their gradients..</li>
     location: 'Donald Bren Hall, University of California, Irvine',
     title: <div><a className='text-cyan-700' href='https://zotbins.github.io/'>ZerO</a> Waste Anteaters</div>,
     content: (
-      <ul>
-      <li>-Led a team of 8 members to explore waste recognition solutions.</li>
-      <li>-Designed a computer vision and waste recognition tutorial that stimulate students' interests.</li>
-      <li>-Trained light-weight models for waste image classification (Mobilenetv3, ShuffleNet, and
-EfficientNet) and waste object detection (Faster-RCNN and YOLOv5); achieved ~0.94
-classification accuracy and ~0.76 mean precision error.</li>
-      <li>-Deployed the waste recognition models to resource-limited machines (Jetson Nano)</li>
-      </ul>
+      <p></p>
+//       <ul>
+//       <li>-Led a team of 8 members to explore waste recognition solutions.</li>
+//       <li>-Designed a computer vision and waste recognition tutorial that stimulate students' interests.</li>
+//       <li>-Trained light-weight models for waste image classification (Mobilenetv3, ShuffleNet, and
+// EfficientNet) and waste object detection (Faster-RCNN and YOLOv5); achieved ~0.94
+// classification accuracy and ~0.76 mean precision error.</li>
+//       <li>-Deployed the waste recognition models to resource-limited machines (Jetson Nano)</li>
+//       </ul>
     ),
   }
 ];
@@ -440,23 +456,46 @@ classification accuracy and ~0.76 mean precision error.</li>
 
 
 export const employment: TimelineItem[] = [
-  				         
- 
+  {
+    date: '2025.1 - Present',
+    location: 'TACO Group @ Texas A&M University',
+    title: 'Graduate Research Assistant',
+    content: (
+      <p></p>
+    )
+  },	 
+  {
+    date: '2024.7 - 2024.12',
+    location: 'Map and Motion Lab @ University of Michigan, Ann Arbor',
+    title: 'Graduate Research Assistant',
+    content: (
+      <p></p>
+    )
+  },	         
+  {
+    date: '2023.12 - 2024.6',
+    location: 'UM Ford Center for Autonomous Vehicles (FCAV)',
+    title: 'Graduate Research Assistant',
+    content: (
+      <p></p>
+    )
+  },
   {
     date: '2023.4 - 2023.7',
     location: 'Anhui Cowa ROBOT Co., Ltd, Shanghai, China',
     title: 'Perception Research Intern',
     content: (
-    <ul>
-      <li>-Online HD Map Construction with Flow Map Prior (3.2% higher mAP than the baseline) </li>
-      <ul>
-        <li>---Propose to use historical vehicle trajectories as prior</li>
-        <li>---Reproduce the neural map prior and allivate the catastrophic forgetting problem by adding noise and dummy features.</li>
-        <li>---Propose Keypoints DTW Loss to increase the consistency of the regression loss</li>  
-        <li>---Inspired by BevFormerV2, implement 2D auxiliary keypoints detection to further boost the accuracy.</li>
-      </ul>
-      <li>-Motion Prediction with Historical Trajectories Clustering</li>
-    </ul>
+      <p></p>
+    // <ul>
+    //   <li>-Online HD Map Construction with Flow Map Prior (3.2% higher mAP than the baseline) </li>
+    //   <ul>
+    //     <li>---Propose to use historical vehicle trajectories as prior</li>
+    //     <li>---Reproduce the neural map prior and allivate the catastrophic forgetting problem by adding noise and dummy features.</li>
+    //     <li>---Propose Keypoints DTW Loss to increase the consistency of the regression loss</li>  
+    //     <li>---Inspired by BevFormerV2, implement 2D auxiliary keypoints detection to further boost the accuracy.</li>
+    //   </ul>
+    //   <li>-Motion Prediction with Historical Trajectories Clustering</li>
+    // </ul>
     
     )
   },
@@ -465,8 +504,9 @@ export const employment: TimelineItem[] = [
     location: 'Tandll Investment Management Limited, China',
     title: 'Full-stack Software developer',
     content: (
-    <p>
-      -Built a quantitative trading support website using Python (Django & React) and MySQL, which supported high-level trading management, model parameters modification, and historical data & behaviors Visualization</p>
+      <p></p>
+    // <p>
+    //   -Built a quantitative trading support website using Python (Django & React) and MySQL, which supported high-level trading management, model parameters modification, and historical data & behaviors Visualization</p>
     )
   },
   {
@@ -474,7 +514,7 @@ export const employment: TimelineItem[] = [
     location: 'Calit 2, University of California, Irvine',
     title: 'VR Software developer',
     content: (<p>
-      -Worked with a team of 6 to Develop a simple-to-understand VR teaching aid of MA6 Mask Aligner, which enables students to use the machine without physically getting into the clean room.
+      {/* -Worked with a team of 6 to Develop a simple-to-understand VR teaching aid of MA6 Mask Aligner, which enables students to use the machine without physically getting into the clean room. */}
     </p>)
   }
 ]
@@ -525,27 +565,65 @@ export const competitions: TimelineItem[] = [
 
 export const onsubmission: PublicationItem[] = [
   {
-    title: 'Scale-free and Task-agnostic Attack: Generating Photo-realistic Adversarial Patterns with Patch Quilting Generator',
-    imageSrc: PQAttackImg,
-    authors: 'Xiangbo Gao, Cheng Luo, Qinliang Lin, Weicheng Xie, Minmin Liu, Linlin Shen, Keerthy Kusumam, Siyang Song',
-    conference: 'arXiv:2208.06222',
-    paperlink: 'https://arxiv.org/pdf/2208.06222.pdf',
-    paperlinksmall: 'assets/documents/publications/PQAttack.pdf',
-    githublink: 'https://github.com/XiangboGaoBarry/PQAttack',
-    description: 'Traditional L_p norm-restricted image attack algorithms suffer from poor transferability to black box scenarios and poor robustness to defense algorithms. Recent CNN generator-based attack approaches can synthesize unrestricted and semantically meaningful entities to the image, which is shown to be transferable and robust. However, such methods attack images by either synthesizing local adversarial entities, which are only suitable for attacking specific contents or performing global attacks, which are only applicable to a specific image scale. In this paper, we propose a novel Patch Quilting Generative Adversarial Networks (PQ-GAN) to learn the first scale-free CNN generator that can be applied to attack images with arbitrary scales for various computer vision tasks. The principal investigation on transferability of the generated adversarial examples, robustness to defense frameworks, and visual quality assessment show that the proposed PQG-based attack framework outperforms the other nine state-of-the-art adversarial attack approaches when attacking the neural networks trained on two standard evaluation datasets (i.e., ImageNet and CityScapes).' 
-  }
+    title: 'AutoTrust: Benchmarking Trustworthiness in Large Vision Language Models for Autonomous Driving',
+    imageSrc: AutoTrustImg,
+    authors: 'Shuo Xing, Hongyuan Hua, Xiangbo Gao, Shenzhe Zhu, Renjie Li, Kexin Tian, Xiaopeng Li, Heng Huang, Tianbao Yang, Zhangyang Wang, Yang Zhou, Huaxiu Yao, Zhengzhong Tu',
+    conference: 'Arxiv',
+    paperlink: 'https://arxiv.org/abs/2412.15206',
+    paperlinksmall: 'https://arxiv.org/abs/2412.15206',
+    githublink: 'https://github.com/taco-group/autotrust?tab=readme-ov-file',
+    description: '' ,
+    projectpage: 'https://taco-group.github.io/AutoTrust/',
+  },
+
 ];
 
 export const selected: PublicationItem[] = [
   {
+    title: 'STAMP: Scalable Task- And Model-agnostic Collaborative Perception',
+    imageSrc: STAMPImg,
+    authors: 'Xiangbo Gao, Runsheng Xu, Jiachen Li, Ziran Wang, Zhiwen Fan, Zhengzhong Tu',
+    conference: 'ITSC 2024',
+    paperlink: 'https://arxiv.org/abs/2501.18616',
+    paperlinksmall: 'https://arxiv.org/abs/2501.18616',
+    githublink: 'https://github.com/taco-group/STAMP',
+    description: '' ,
+    projectpage: 'https://xiangbogaobarry.github.io/STAMP/',
+  },
+  {
+    title: 'MambaST: A Plug-and-Play Cross-Spectral Spatial-Temporal Fuser for Efficient Pedestrian Detection',
+    imageSrc: MambaSTImg,
+    authors: 'Xiangbo Gao, Asiegbu Miracle Kanu-Asiegbu, Xiaoxiao Du',
+    conference: 'ITSC 2024',
+    paperlink: 'https://arxiv.org/abs/2408.01037',
+    paperlinksmall: 'https://arxiv.org/abs/2408.01037',
+    githublink: 'https://github.com/XiangboGaoBarry/MambaST',
+    description: '',
+    projectpage: '',
+  },
+  {
+    title: 'Scale-free and Task-agnostic Attack: Generating Photo-realistic Adversarial Patterns with Patch Quilting Generator',
+    imageSrc: PQAttackImg,
+    authors: 'Xiangbo Gao, Cheng Luo, Qinliang Lin, Weicheng Xie, Minmin Liu, Linlin Shen, Keerthy Kusumam, Siyang Song',
+    conference: 'ICASSP 2024',
+    paperlink: 'https://arxiv.org/pdf/2208.06222.pdf',
+    paperlinksmall: 'assets/documents/publications/PQAttack.pdf',
+    githublink: 'https://github.com/XiangboGaoBarry/PQAttack',
+    // description: 'Traditional L_p norm-restricted image attack algorithms suffer from poor transferability to black box scenarios and poor robustness to defense algorithms. Recent CNN generator-based attack approaches can synthesize unrestricted and semantically meaningful entities to the image, which is shown to be transferable and robust. However, such methods attack images by either synthesizing local adversarial entities, which are only suitable for attacking specific contents or performing global attacks, which are only applicable to a specific image scale. In this paper, we propose a novel Patch Quilting Generative Adversarial Networks (PQ-GAN) to learn the first scale-free CNN generator that can be applied to attack images with arbitrary scales for various computer vision tasks. The principal investigation on transferability of the generated adversarial examples, robustness to defense frameworks, and visual quality assessment show that the proposed PQG-based attack framework outperforms the other nine state-of-the-art adversarial attack approaches when attacking the neural networks trained on two standard evaluation datasets (i.e., ImageNet and CityScapes).' 
+    description: '',
+    projectpage: '',
+  },
+  {
     title: 'Sample Hardness Based Gradient Loss for Long-Tailed Cervical Cell Detection',
     imageSrc: GradientLibraLossImg,
     authors: 'Minmin Liu, Xuechen Li, Xiangbo Gao, Junliang Chen, Linlin Shen, Huisi Wu',
-    conference: 'Medical Image Computing and Computer Assisted Intervention – MICCAI 2022',
+    conference: 'MICCAI 2022',
     paperlink: 'https://arxiv.org/pdf/2208.03779.pdf',
     paperlinksmall: 'assets/documents/publications/Gradient-Libra-Loss.pdf',
     githublink: '',
-    description: 'Due to the difficulty of cancer samples collection and annotation, cervical cancer datasets usually exhibit a long-tailed data distribution. When training a detector to detect the cancer cells in a WSI (Whole Slice Image) image captured from the TCT (Thinprep Cytology Test) specimen, head categories (e.g. normal cells and inflammatory cells) typically have a much larger number of samples than tail categories (e.g. cancer cells). Most existing state-of-the-art long-tailed learning methods in object detection focus on category distribution statistics to solve the problem in the long-tailed scenario without considering the "hardness" of each sample. To address this problem, in this work we propose a Grad-Libra Loss that leverages the gradients to dynamically calibrate the degree of hardness of each sample for different categories, and re-balance the gradients of positive and negative samples. Our loss can thus help the detector to put more emphasis on those hard samples in both head and tail categories. Extensive experiments on a long-tailed TCT WSI image dataset show that the mainstream detectors, e.g. RepPoints, FCOS, ATSS, YOLOF, etc. trained using our proposed Gradient-Libra Loss, achieved much higher (7.8%) mAP than that trained using cross-entropy classification loss.'
+    // description: 'Due to the difficulty of cancer samples collection and annotation, cervical cancer datasets usually exhibit a long-tailed data distribution. When training a detector to detect the cancer cells in a WSI (Whole Slice Image) image captured from the TCT (Thinprep Cytology Test) specimen, head categories (e.g. normal cells and inflammatory cells) typically have a much larger number of samples than tail categories (e.g. cancer cells). Most existing state-of-the-art long-tailed learning methods in object detection focus on category distribution statistics to solve the problem in the long-tailed scenario without considering the "hardness" of each sample. To address this problem, in this work we propose a Grad-Libra Loss that leverages the gradients to dynamically calibrate the degree of hardness of each sample for different categories, and re-balance the gradients of positive and negative samples. Our loss can thus help the detector to put more emphasis on those hard samples in both head and tail categories. Extensive experiments on a long-tailed TCT WSI image dataset show that the mainstream detectors, e.g. RepPoints, FCOS, ATSS, YOLOF, etc. trained using our proposed Gradient-Libra Loss, achieved much higher (7.8%) mAP than that trained using cross-entropy classification loss.'
+    description: '',
+    projectpage: '',
   }
 ];
 

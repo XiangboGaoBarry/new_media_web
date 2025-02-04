@@ -4,7 +4,7 @@ import Image from 'next/image';
 import {PublicationItem} from '../../../data/dataDef';
 
 const PublicationItem: FC<{item: PublicationItem}> = memo(({item}) => {
-  const {title, authors, imageSrc, conference, paperlink, paperlinksmall, githublink, description} = item;
+  const {title, authors, imageSrc, conference, paperlink, paperlinksmall, githublink, description, projectpage} = item;
   return (
       <div className="grid grid-cols-1 gap-y-4 py-8 first:pt-0 last:pb-0 md:grid-cols-4">
         <div className="col-span-3 flex-col md:col-span-3">
@@ -12,6 +12,7 @@ const PublicationItem: FC<{item: PublicationItem}> = memo(({item}) => {
           <h3 className="text-sm">{authors}</h3>
           <h3 className="text-sm">{conference}</h3>
           <div>
+            <a className="italic text-cyan-700 hover:not-italic" href={projectpage}>Project Page</a><span> | </span> 
             <a className="italic text-cyan-700 hover:not-italic" href={paperlink}>Paper</a><span> | </span> 
             <a className="italic text-cyan-700 hover:not-italic" href={paperlinksmall}>Compressed Paper</a> 
             {githublink && <span> | <a className="italic text-cyan-700 hover:not-italic" href={githublink}>Code</a></span>}

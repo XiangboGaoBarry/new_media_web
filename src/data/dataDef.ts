@@ -103,6 +103,7 @@ export interface PublicationItem {
   paperlinksmall: string;
   githublink: string;
   description: string;
+  projectpage: string;
 }
 
 /**

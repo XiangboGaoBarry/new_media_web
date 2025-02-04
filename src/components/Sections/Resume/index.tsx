@@ -15,11 +15,11 @@ const Resume: FC = memo(() => {
             <TimelineItem item={item} key={`${item.title}-${index}`} />
           ))}
         </ResumeSection>
-        <ResumeSection title="Research">
+        {/* <ResumeSection title="Research">
           {experience.map((item, index) => (
             <TimelineItem item={item} key={`${item.title}-${index}`} />
           ))}
-        </ResumeSection>
+        </ResumeSection> */}
         <ResumeSection title="Employment">
           {employment.map((item, index) => (
             <TimelineItem item={item} key={`${item.title}-${index}`} />
