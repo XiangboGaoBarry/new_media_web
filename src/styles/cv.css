@@ -1,0 +1,83 @@
+
+
+
+/* ----------  GLOBAL / PRINT  ---------- */
+@page {
+    size: A4;
+    margin: 18mm 18mm 16mm;
+}
+
+body,
+.cv-container {
+font-family: "Helvetica Neue", Arial, sans-serif;
+font-size: 10.5pt;
+line-height: 1.25;
+color: #000;
+}
+
+.cv-container {
+width: 174mm;           /* 210 – 18 – 18 = 174 */
+}
+
+/* ----------  HEADER  ---------- */
+.cv-header h1 {
+margin: 0 0 2mm 0;
+font-size: 22pt;
+font-weight: 700;
+}
+
+.cv-header p {
+margin: 0 0 6mm 0;
+font-size: 11pt;
+color: #555;
+}
+
+/* ----------  SECTION TITLES  ---------- */
+section {
+margin-top: 7mm;
+}
+
+section h2 {
+font-size: 14pt;
+font-weight: 600;
+margin: 0 0 2mm;
+border-bottom: 1px solid #444;
+padding-bottom: 1mm;
+}
+
+/* ----------  LISTS  ---------- */
+ul,
+ol {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+li {
+/* display: flex;
+justify-content: space-between;
+align-items: flex-start; */
+margin-bottom: 2.5mm;
+}
+
+li span:first-child {
+flex: 1 1 auto;
+}
+
+.cv-date {
+flex: none;
+margin-left: 6mm;
+font-style: italic;
+}
+
+/* Multi-line paragraph inside <li> */
+li p {
+margin: 0;
+}
+
+/* ----------  FORCED PAGE BREAKS (optional) ---------- */
+@media print {
+section.page-break {
+    page-break-before: always;
+}
+}

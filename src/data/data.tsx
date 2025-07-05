@@ -246,54 +246,6 @@ export const portfolioItems: PortfolioItem[] = [
     url: 'https://github.com/XiangboGaoBarry/PQAttack',
     image: PQAttackImg,
   },
-  // {
-  //   title: 'Project title 4',
-  //   description: 'Give a short description of your project here.',
-  //   url: 'https://timbaker.me',
-  //   image: porfolioImage4,
-  // },
-  // {
-  //   title: 'Project title 5',
-  //   description: 'Give a short description of your project here.',
-  //   url: 'https://timbaker.me',
-  //   image: porfolioImage5,
-  // },
-  // {
-  //   title: 'Project title 6',
-  //   description: 'Give a short description of your project here.',
-  //   url: 'https://timbaker.me',
-  //   image: porfolioImage6,
-  // },
-  // {
-  //   title: 'Project title 7',
-  //   description: 'Give a short description of your project here.',
-  //   url: 'https://timbaker.me',
-  //   image: porfolioImage7,
-  // },
-  // {
-  //   title: 'Project title 8',
-  //   description: 'Give a short description of your project here.',
-  //   url: 'https://timbaker.me',
-  //   image: porfolioImage8,
-  // },
-  // {
-  //   title: 'Project title 9',
-  //   description: 'Give a short description of your project here.',
-  //   url: 'https://timbaker.me',
-  //   image: porfolioImage9,
-  // },
-  // {
-  //   title: 'Project title 10',
-  //   description: 'Give a short description of your project here.',
-  //   url: 'https://timbaker.me',
-  //   image: porfolioImage10,
-  // },
-  // {
-  //   title: 'Project title 11',
-  //   description: 'Give a short description of your project here.',
-  //   url: 'https://timbaker.me',
-  //   image: porfolioImage11,
-  // },
 ];
 
 /**
@@ -301,29 +253,33 @@ export const portfolioItems: PortfolioItem[] = [
  */
 export const education: TimelineItem[] = [
   {
+    type: 'education',
     date: '2025.1 - Present',
     location: 'Texas A&M University',
-    title: 'Computer Science Ph.D. Candidate',
+    title: 'Ph.D. in Computer Science',
     content: <p> </p>,
   },
   {
+    type: 'education',
     date: '2023.9 - 2024.12',
     location: 'University of Michigan, Ann Arbor',
-    title: 'Robotics M.S. Student',
+    title: 'M.S. in Robotics',
     content: <p> </p>,
   },
   {
+    type: 'education',
     date: '2018.9 - 2023.3',
     location: 'University of California, Irvine',
     title: 'B.S. in Computer Science | B.S. in Mathematics',
     content: <p></p>,
   },
-  {
-    date: '2019.6 - 2019.9',
-    location: 'University of California, Berkeley',
-    title: 'Summer Session',
-    content: <p></p>,
-  },
+  // {
+  //   type: 'education',
+  //   date: '2019.6 - 2019.9',
+  //   location: 'University of California, Berkeley',
+  //   title: 'Summer Session',
+  //   content: <p></p>,
+  // },
 ];
 
 // export const experience: TimelineItem[] = [
@@ -457,6 +413,7 @@ export const education: TimelineItem[] = [
 
 export const employment: TimelineItem[] = [
   {
+    type: 'employment',
     date: '2025.1 - Present',
     location: 'TACO Group @ Texas A&M University',
     title: 'Graduate Research Assistant',
@@ -465,6 +422,7 @@ export const employment: TimelineItem[] = [
     )
   },	 
   {
+    type: 'employment',
     date: '2024.7 - 2024.12',
     location: 'Map and Motion Lab @ University of Michigan, Ann Arbor',
     title: 'Graduate Research Assistant',
@@ -473,6 +431,7 @@ export const employment: TimelineItem[] = [
     )
   },	         
   {
+    type: 'employment',
     date: '2023.12 - 2024.6',
     location: 'UM Ford Center for Autonomous Vehicles (FCAV)',
     title: 'Graduate Research Assistant',
@@ -481,6 +440,7 @@ export const employment: TimelineItem[] = [
     )
   },
   {
+    type: 'employment',
     date: '2023.4 - 2023.7',
     location: 'Anhui Cowa ROBOT Co., Ltd, Shanghai, China',
     title: 'Perception Research Intern',
@@ -500,6 +460,7 @@ export const employment: TimelineItem[] = [
     )
   },
   {
+    type: 'employment',
     date: '2020.6 - 2020.8',
     location: 'Tandll Investment Management Limited, China',
     title: 'Full-stack Software developer',
@@ -510,6 +471,7 @@ export const employment: TimelineItem[] = [
     )
   },
   {
+    type: 'employment',
     date: '2019.2 - 2019.7',
     location: 'Calit 2, University of California, Irvine',
     title: 'VR Software developer',
@@ -521,6 +483,7 @@ export const employment: TimelineItem[] = [
 
 export const competitions: TimelineItem[] = [
   {
+    type: 'competitions',
     date: '2023.5',
     location: 'N/A',
     title: 'CVPR Camera-based online HD map construction challenge 2023',
@@ -531,6 +494,7 @@ export const competitions: TimelineItem[] = [
     )
   },
   {
+    type: 'competitions',
     date: '2020.4',
     location: 'University of California, Irvine, CA, USA',
     title: 'UCI 2020 Machine Learning Hackathon',
@@ -541,6 +505,7 @@ export const competitions: TimelineItem[] = [
     )
   },
   {
+    type: 'competitions',
     date: '2020.2',
     location: 'Irvine, CA',
     title: 'Google Hash Code 2020 Algorithms Competition',
@@ -551,6 +516,7 @@ export const competitions: TimelineItem[] = [
     )
   },
   {
+    type: 'competitions',
     date: '2020.6',
     location: 'China',
     title: 'Netease Hackathon Competition',
@@ -697,3 +663,9 @@ export const socialLinks: Social[] = [
   // {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/tbakerx/'},
   // {label: 'Twitter', Icon: TwitterIcon, href: 'https://twitter.com/TimBakerx'},
 ];
+
+
+
+export const publicationData = selected;                    // 已有的 selected Publications
+// export const timelineData    = [...education, ...experience]; // 合并时间线
+export const timelineData    = [...education, ]; // 合并时间线

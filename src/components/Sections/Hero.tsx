@@ -6,6 +6,7 @@ import {FC, memo} from 'react';
 import {heroData, SectionId} from '../../data/data';
 import Section from '../Layout/Section';
 import Socials from '../Socials';
+import DownloadCvButton from '../Actions/DownloadCvButton';
 
 const Hero: FC = memo(() => {
   const {imageSrc, personalSrc, name, description, actions} = heroData;
@@ -51,6 +52,7 @@ const Hero: FC = memo(() => {
                   {Icon && <Icon className="h-5 w-5 text-white sm:h-6 sm:w-6" />}
                 </a>
               ))}
+              <DownloadCvButton />
             </div>
           </div>
         </div>
