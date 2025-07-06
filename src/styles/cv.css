@@ -4,7 +4,7 @@
 /* ----------  GLOBAL / PRINT  ---------- */
 @page {
     size: A4;
-    margin: 18mm 18mm 16mm;
+    margin: 20mm 18mm 16mm;
 }
 
 body,
@@ -13,12 +13,19 @@ font-family: "Helvetica Neue", Arial, sans-serif;
 font-size: 10.5pt;
 line-height: 1.25;
 color: #000;
+max-width: 170mm;   /* 比原来窄 4 mm，足够避开舍入误差 */
+width: 100%;        /* 让浏览器自由缩放 */
+margin: 0 auto;     /* 居中 */
+padding-bottom: 4mm;
 }
 
-.cv-container {
-width: 174mm;           /* 210 – 18 – 18 = 174 */
+.cv-header {
+    display: flex;          /* center the whole block */
+    flex-direction: column;
+    align-items: center;    /* horizontal centering */
+    text-align: center;     /* title / description align */
 }
-
+  
 /* ----------  HEADER  ---------- */
 .cv-header h1 {
 margin: 0 0 2mm 0;
@@ -48,20 +55,44 @@ padding-bottom: 1mm;
 /* ----------  LISTS  ---------- */
 ul,
 ol {
-list-style: none;
-margin: 0;
-padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 li {
-/* display: flex;
-justify-content: space-between;
-align-items: flex-start; */
-margin-bottom: 2.5mm;
+  margin-bottom: 3mm;     /* 行间距稍大，便于三行展示 */
 }
 
-li span:first-child {
-flex: 1 1 auto;
+/* ----------  PUBLICATION ITEM ---------- */
+.pub-item {
+    margin-bottom: 3mm;
+  }
+
+.pub-link {
+text-decoration: none;          /* 整段可点击 */
+color: inherit;
+}
+
+.pub-link:hover .pub-title {
+text-decoration: underline;
+}
+
+.pub-icon {
+font-size: 10pt;     /* 必要时调大/换 svg */
+}
+
+.pub-title {
+font-weight: 600;
+}
+
+.pub-conf {
+font-style: italic;
+}
+
+.pub-auth {
+color: #444;
+margin-top: 0.5mm;
 }
 
 .cv-date {
@@ -81,3 +112,76 @@ section.page-break {
     page-break-before: always;
 }
 }
+
+
+/* ---------- EMPLOYMENT & TWO-COLUMN ---------- */
+.cv-two-col {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2mm;
+  }
+  .cv-two-col .cv-date {
+    flex: none;
+    margin-left: 6mm;
+  }
+  
+  /* ---------- CONTACT ---------- */
+  .cv-contact {
+    list-style: none;
+    margin: 0 0 2mm;
+    padding: 0;
+  }
+  .cv-contact li {
+    margin-bottom: 3mm;
+  }
+  
+  /* ---------- SOCIAL ICON ROW ---------- */
+  .cv-socials {
+    margin-top: 2mm;
+    display: flex;
+    gap: 8mm;
+    flex-wrap: wrap;
+  }
+  .cv-social-icon {
+    width: 14pt;
+    height: 14pt;
+    opacity: 1;
+  }
+  .cv-social-icon:hover {
+    opacity: 1;
+  }
+  
+  /* ---------- SECTION HEADERS already exist (h2) ---------- */
+
+
+
+.ital {
+    font-style: italic;
+}
+
+/* ----------  DEFINITION LIST STYLE ---------- */
+.cv-def-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .cv-def-list li {
+    display: flex;
+    gap: 4mm;                /* 冒号后的缩进距离，可按需调 */
+    margin-bottom: 0;
+  }
+  
+  .cv-def-term {
+    min-width: 35mm;         /* 左列统一宽度；调大/小以适配 PDF */
+    font-weight: 400;
+    position: relative;
+  }
+  
+  
+  .cv-def-desc {
+    flex: 1;                 /* 右列自动撑满 */
+  }
+
+
+

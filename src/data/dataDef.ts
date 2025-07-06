@@ -162,3 +162,9 @@ export interface Social {
   Icon: FC<IconProps>;
   href: string;
 }
+
+export interface Service {
+  title: string;
+  description: string | JSX.Element;
+  date: string;
+}

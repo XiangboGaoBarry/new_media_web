@@ -10,6 +10,7 @@ import {
 
 import {FaTwitter} from 'react-icons/fa';
 import {SiZhihu} from 'react-icons/si';
+import { autoPublications } from './publications.generated';
 import GithubIcon from '../components/Icon/GithubIcon';
 import GoogleScholarIcon from '../components/Icon/GoogleScholarIcon';
 // import InstagramIcon from '../components/Icon/InstagramIcon';
@@ -53,6 +54,7 @@ import {
   TestimonialSection,
   TimelineItem,
   PublicationItem,
+  Service,
 } from './dataDef';
 
 /**
@@ -131,7 +133,7 @@ export const aboutData: About = {
     {label: 'Location', text: 'Texas A&M University, College Station, TX', Icon: MapIcon},
     {label: 'Age', text: '25', Icon: CalendarIcon},
     {label: 'Nationality', text: 'China', Icon: FlagIcon},
-    {label: 'Interests', text: 'Skiing, Rock climbing', Icon: SparklesIcon},
+    {label: 'Interests', text: 'Snowboarding, Skiing, Rock climbing', Icon: SparklesIcon},
     {label: 'Study', text: 'Texas A&M University, College Station, TX', Icon: AcademicCapIcon},
     // {label: 'Employment', text: 'Instant Domains, inc.', Icon: OfficeBuildingIcon},
   ],
@@ -489,7 +491,7 @@ export const competitions: TimelineItem[] = [
     title: 'CVPR Camera-based online HD map construction challenge 2023',
     content: (
       <p>
-        Result: Rank 13th in <a className='italic text-cyan-700 hover:not-italic' href='https://github.com/Tsinghua-MARS-Lab/Online-HD-Map-Construction-CVPR2023'>CVPR Camera-based online HD map construction challenge 2023</a> 
+        Rank 13th in <a className='italic text-cyan-700 hover:not-italic' href='https://github.com/Tsinghua-MARS-Lab/Online-HD-Map-Construction-CVPR2023'>CVPR Camera-based online HD map construction challenge 2023</a> 
       </p>
     )
   },
@@ -500,7 +502,7 @@ export const competitions: TimelineItem[] = [
     title: 'UCI 2020 Machine Learning Hackathon',
     content: (
       <p>
-        1st place on the <a className='italic text-cyan-700 hover:not-italic' href='https://github.com/XiangboGaoBarry/UCI-Hackathon-GPA/blob/master/democode_GPA_UCIhackthon.ipynb'>subproject</a> of <a className='italic text-cyan-700 hover:not-italic' href='https://arxiv.org/pdf/1905.07718.pdf'>3D Human Pose with Scene Constraints</a>
+        1st place on the <a className='italic text-cyan-700 hover:not-italic' href='https://github.com/XiangboGaoBarry/UCI-Hackathon-GPA/blob/master/democode_GPA_UCIhackthon.ipynb'>subproject</a> of 3D Human Pose with Scene Constraints
       </p>
     )
   },
@@ -511,21 +513,21 @@ export const competitions: TimelineItem[] = [
     title: 'Google Hash Code 2020 Algorithms Competition',
     content: (
       <p>
-        Result: 2nd place / 13 at UCI | Team name: &epsilon;=.99
+        2nd place at UCI | Team name: &epsilon;=.99
       </p>
     )
   },
-  {
-    type: 'competitions',
-    date: '2020.6',
-    location: 'China',
-    title: 'Netease Hackathon Competition',
-    content: (
-      <p>
-        Outstanding Award
-      </p>
-    )
-  }
+  // {
+  //   type: 'competitions',
+  //   date: '2020.6',
+  //   location: 'China',
+  //   title: 'Netease Hackathon Competition',
+  //   content: (
+  //     <p>
+  //       Outstanding Award
+  //     </p>
+  //   )
+  // }
 ]
 
 
@@ -666,6 +668,40 @@ export const socialLinks: Social[] = [
 
 
 
-export const publicationData = selected;                    // 已有的 selected Publications
+export const services: Service[] = [
+  {
+    title: 'Conference and Journal Paper Reviewing',
+    description: (
+    <ul className="cv-def-list">
+      <li>
+        <span className="cv-def-term">CV & ML:</span>
+        <span className="cv-def-desc ital">ICCV, CVPR, NeurIPS</span>
+      </li>
+      <li>
+        <span className="cv-def-term">Robotics:</span>
+        <span className="cv-def-desc ital">ICRA, IROS, RA-L</span>
+      </li>
+      <li>
+        <span className="cv-def-term">Transportation:</span>
+        <span className="cv-def-desc ital">ITSC</span>
+      </li>
+    </ul>
+    ),
+    date: '2024 - Present',
+    }
+]
+
+
+
+// export const publicationData = selected;                    // 已有的 selected Publications
+export const publicationData = autoPublications; 
+export const aboutItem = aboutData;
+export const employmentItem = employment; // 工作经历
+export const competitionItem = competitions; // 竞赛经历
+export const contactItem = contact; // 联系方式
+export const socialLinksItem = socialLinks; // 社交链接
+
+
+
 // export const timelineData    = [...education, ...experience]; // 合并时间线
 export const timelineData    = [...education, ]; // 合并时间线
