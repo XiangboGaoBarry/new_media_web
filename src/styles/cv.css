@@ -1,187 +1,168 @@
+/* ============================================================== */
+/*  CV – ON-SCREEN STYLES (apply only inside .cv-container)       */
+/* ============================================================== */
 
-
-
-/* ----------  GLOBAL / PRINT  ---------- */
-@page {
-    size: A4;
-    margin: 20mm 18mm 16mm;
-}
-
-body,
 .cv-container {
-font-family: "Helvetica Neue", Arial, sans-serif;
-font-size: 10.5pt;
-line-height: 1.25;
-color: #000;
-max-width: 170mm;   /* 比原来窄 4 mm，足够避开舍入误差 */
-width: 100%;        /* 让浏览器自由缩放 */
-margin: 0 auto;     /* 居中 */
-padding-bottom: 4mm;
-}
-
-.cv-header {
-    display: flex;          /* center the whole block */
-    flex-direction: column;
-    align-items: center;    /* horizontal centering */
-    text-align: center;     /* title / description align */
-}
+    /* page-like box centred on screen */
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 10.5pt;
+    line-height: 1.25;
+    color: #000;
+    max-width: 170mm;    /* safe width for PDF */
+    width: 100%;
+    margin: 0 auto;
+    padding-bottom: 4mm; /* avoid last-line truncation */
+  }
   
-/* ----------  HEADER  ---------- */
-.cv-header h1 {
-margin: 0 0 2mm 0;
-font-size: 22pt;
-font-weight: 700;
-}
-
-.cv-header p {
-margin: 0 0 6mm 0;
-font-size: 11pt;
-color: #555;
-}
-
-/* ----------  SECTION TITLES  ---------- */
-section {
-margin-top: 7mm;
-}
-
-section h2 {
-font-size: 14pt;
-font-weight: 600;
-margin: 0 0 2mm;
-border-bottom: 1px solid #444;
-padding-bottom: 1mm;
-}
-
-/* ----------  LISTS  ---------- */
-ul,
-ol {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-li {
-  margin-bottom: 3mm;     /* 行间距稍大，便于三行展示 */
-}
-
-/* ----------  PUBLICATION ITEM ---------- */
-.pub-item {
+  /* ---------- Header ---------- */
+  .cv-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .cv-header h1 {
+    margin: 0 0 2mm 0;
+    font-size: 22pt;
+    font-weight: 700;
+  }
+  .cv-header p {
+    margin: 0 0 6mm 0;
+    font-size: 11pt;
+    color: #555;
+  }
+  
+  /* ---------- Section titles ---------- */
+  .cv-container section {
+    margin-top: 7mm;
+  }
+  .cv-container section h2 {
+    font-size: 14pt;
+    font-weight: 600;
+    margin: 0 0 2mm;
+    border-bottom: 1px solid #444;
+    padding-bottom: 1mm;
+  }
+  
+  /* ---------- Lists ---------- */
+  .cv-container ul,
+  .cv-container ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .cv-container li {
     margin-bottom: 3mm;
   }
-
-.pub-link {
-text-decoration: none;          /* 整段可点击 */
-color: inherit;
-}
-
-.pub-link:hover .pub-title {
-text-decoration: underline;
-}
-
-.pub-icon {
-font-size: 10pt;     /* 必要时调大/换 svg */
-}
-
-.pub-title {
-font-weight: 600;
-}
-
-.pub-conf {
-font-style: italic;
-}
-
-.pub-auth {
-color: #444;
-margin-top: 0.5mm;
-}
-
-.cv-date {
-flex: none;
-margin-left: 6mm;
-font-style: italic;
-}
-
-/* Multi-line paragraph inside <li> */
-li p {
-margin: 0;
-}
-
-/* ----------  FORCED PAGE BREAKS (optional) ---------- */
-@media print {
-section.page-break {
-    page-break-before: always;
-}
-}
-
-
-/* ---------- EMPLOYMENT & TWO-COLUMN ---------- */
-.cv-two-col {
+  
+  /* ---------- Two-column rows (Education / Employment / …) ---------- */
+  .cv-container .cv-two-col {
     display: flex;
     justify-content: space-between;
     margin-bottom: 2mm;
   }
-  .cv-two-col .cv-date {
+  .cv-container .cv-two-col .cv-date {
     flex: none;
     margin-left: 6mm;
+    font-style: italic;
   }
   
-  /* ---------- CONTACT ---------- */
-  .cv-contact {
-    list-style: none;
-    margin: 0 0 2mm;
-    padding: 0;
+  /* ---------- Publications ---------- */
+  .cv-container .pub-item {
+    margin-bottom: 3mm;
   }
-  .cv-contact li {
+  .cv-container .pub-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  .cv-container .pub-link:hover .pub-title {
+    text-decoration: underline;
+  }
+  .cv-container .pub-icon {
+    font-size: 10pt;
+  }
+  .cv-container .pub-title {
+    font-weight: 600;
+  }
+  .cv-container .pub-conf {
+    font-style: italic;
+  }
+  .cv-container .pub-auth {
+    color: #444;
+    margin-top: 0.5mm;
+  }
+  
+  /* ---------- Contact ---------- */
+  .cv-container .cv-contact li {
     margin-bottom: 3mm;
   }
   
-  /* ---------- SOCIAL ICON ROW ---------- */
-  .cv-socials {
+  /* ---------- Social icon row ---------- */
+  .cv-container .cv-socials {
     margin-top: 2mm;
     display: flex;
     gap: 8mm;
     flex-wrap: wrap;
   }
-  .cv-social-icon {
+  .cv-container .cv-social-icon {
     width: 14pt;
     height: 14pt;
     opacity: 1;
   }
-  .cv-social-icon:hover {
+  .cv-container .cv-social-icon:hover {
     opacity: 1;
   }
   
-  /* ---------- SECTION HEADERS already exist (h2) ---------- */
-
-
-
-.ital {
-    font-style: italic;
-}
-
-/* ----------  DEFINITION LIST STYLE ---------- */
-.cv-def-list {
+  /* ---------- Definition list (aligned terms) ---------- */
+  .cv-container .cv-def-list {
     list-style: none;
     margin: 0;
     padding: 0;
   }
-  
-  .cv-def-list li {
+  .cv-container .cv-def-list li {
     display: flex;
-    gap: 4mm;                /* 冒号后的缩进距离，可按需调 */
+    gap: 4mm;
     margin-bottom: 0;
   }
-  
-  .cv-def-term {
-    min-width: 35mm;         /* 左列统一宽度；调大/小以适配 PDF */
+  .cv-container .cv-def-term {
+    min-width: 35mm;
     font-weight: 400;
     position: relative;
   }
-  
-  
-  .cv-def-desc {
-    flex: 1;                 /* 右列自动撑满 */
+  .cv-container .cv-def-term::after {
+    content: ":";
+    position: absolute;
+    right: -2mm;
   }
-
-
-
+  .cv-container .cv-def-desc {
+    flex: 1;
+  }
+  
+  /* ---------- Helper ---------- */
+  .ital { font-style: italic; }
+  
+  /* ============================================================== */
+  /*  PRINT-ONLY RULES                                              */
+  /* ============================================================== */
+  @media print {
+    @page {
+      size: A4;
+      margin: 20mm 18mm 16mm;
+    }
+  
+    /* reset native list styles in print */
+    ul, ol { list-style: none; margin: 0; padding: 0; }
+  
+    /* keep individual rows from being split */
+    .pub-item,
+    .cv-two-col,
+    .cv-contact li,
+    .cv-def-list li {
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+  
+    /* optional manual page break helper */
+    section.page-break { page-break-before: always; }
+  }
