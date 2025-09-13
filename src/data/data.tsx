@@ -485,6 +485,18 @@ export const employment: TimelineItem[] = [
 
 export const competitions: TimelineItem[] = [
   {
+    type: 'conference',
+    date: '2025.6',
+    location: 'N/A',
+    title: 'CVPR MEIS workshop 2025, Best Paper Award',
+    content: (
+      <p>
+        <a className='italic text-cyan-700 hover:not-italic' href='https://openaccess.thecvf.com/content/CVPR2025W/MEIS/html/Gao_LangCoop_Collaborative_Driving_with_Language_CVPRW_2025_paper.html'>LangCoop: Collaborative Driving with Language</a> receives
+        <b>Best Paper Award</b> at CVPR MEIS workshop 2025.
+      </p>
+    )
+  },
+  {
     type: 'competitions',
     date: '2023.5',
     location: 'N/A',
@@ -675,7 +687,7 @@ export const services: Service[] = [
     <ul className="cv-def-list">
       <li>
         <span className="cv-def-term">CV & ML:</span>
-        <span className="cv-def-desc ital">ICCV, CVPR, NeurIPS</span>
+        <span className="cv-def-desc ital">ICCV, CVPR, NeurIPS, TPAMI</span>
       </li>
       <li>
         <span className="cv-def-term">Robotics:</span>
@@ -683,7 +695,7 @@ export const services: Service[] = [
       </li>
       <li>
         <span className="cv-def-term">Transportation:</span>
-        <span className="cv-def-desc ital">ITSC</span>
+        <span className="cv-def-desc ital">ITSC, TRB</span>
       </li>
     </ul>
     ),
