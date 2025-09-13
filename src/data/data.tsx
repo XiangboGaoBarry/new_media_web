@@ -485,7 +485,7 @@ export const employment: TimelineItem[] = [
 
 export const competitions: TimelineItem[] = [
   {
-    type: 'conference',
+    type: 'competitions',
     date: '2025.6',
     location: 'N/A',
     title: 'CVPR MEIS workshop 2025, Best Paper Award',
