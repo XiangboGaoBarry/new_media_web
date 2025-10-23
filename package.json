@@ -12,6 +12,9 @@
     "start": "yarn next start",
     "sitemap": "yarn next-sitemap"
   },
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "dependencies": {
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.6",
