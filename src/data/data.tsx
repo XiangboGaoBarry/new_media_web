@@ -10,7 +10,7 @@ import {
 
 import {FaTwitter} from 'react-icons/fa';
 import {SiZhihu} from 'react-icons/si';
-import { autoPublications } from './publications.generated';
+import { autoPublications, autoScholarMetrics } from './publications.generated';
 import GithubIcon from '../components/Icon/GithubIcon';
 import GoogleScholarIcon from '../components/Icon/GoogleScholarIcon';
 // import InstagramIcon from '../components/Icon/InstagramIcon';
@@ -18,17 +18,6 @@ import LinkedInIcon from '../components/Icon/LinkedInIcon';
 // import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
 // import TwitterIcon from '../components/Icon/TwitterIcon';
 import heroImage from '../images/header-background.webp';
-// import porfolioImage1 from '../images/portfolio/portfolio-1.jpg';
-// import porfolioImage2 from '../images/portfolio/portfolio-2.jpg';
-// import porfolioImage3 from '../images/portfolio/portfolio-3.jpg';
-// import porfolioImage4 from '../images/portfolio/portfolio-4.jpg';
-// import porfolioImage5 from '../images/portfolio/portfolio-5.jpg';
-// import porfolioImage6 from '../images/portfolio/portfolio-6.jpg';
-// import porfolioImage7 from '../images/portfolio/portfolio-7.jpg';
-// import porfolioImage8 from '../images/portfolio/portfolio-8.jpg';
-// import porfolioImage9 from '../images/portfolio/portfolio-9.jpg';
-// import porfolioImage10 from '../images/portfolio/portfolio-10.jpg';
-// import porfolioImage11 from '../images/portfolio/portfolio-11.jpg';
 import profilepic from '../images/profilepic.jpg';
 import myImage from '../images/myimg.png';
 import testimonialImage from '../images/testimonial.webp';
@@ -41,6 +30,10 @@ import GradientLibraLossImg from '../images/publications/LibraLoss.png';
 import MambaSTImg from '../images/publications/mambaST.png';
 import AutoTrustImg from '../images/publications/autoTrust.png';
 import STAMPImg from '../images/publications/STAMP.png';
+import AirV2XImg from '../images/publications/AirV2X.png';
+import LangCoopImg from '../images/publications/LangCoop.png';
+import SafeCoopImg from '../images/publications/SafeCoop.png';
+
 
 import {
   About,
@@ -55,6 +48,7 @@ import {
   TimelineItem,
   PublicationItem,
   Service,
+  ScholarMetrics,
 } from './dataDef';
 
 /**
@@ -81,6 +75,47 @@ export const SectionId = {
 } as const;
 
 export type SectionId = typeof SectionId[keyof typeof SectionId];
+
+const TITLE_MATCH_MIN_LENGTH = 20;
+
+const normalizeTitle = (title: string): string => title.toLowerCase().replace(/[^a-z0-9]/g, '');
+
+const hasLongCommonSequence = (first: string, second: string, minLength = TITLE_MATCH_MIN_LENGTH): boolean => {
+  if (first.length < minLength || second.length < minLength) {
+    return false;
+  }
+
+  const shorter = first.length <= second.length ? first : second;
+  const longer = shorter === first ? second : first;
+
+  for (let index = 0; index <= shorter.length - minLength; index += 1) {
+    const slice = shorter.slice(index, index + minLength);
+    if (longer.includes(slice)) {
+      return true;
+    }
+  }
+
+  return false;
+};
+
+const titlesLikelyMatch = (firstTitle: string, secondTitle: string): boolean => {
+  const normalizedFirst = normalizeTitle(firstTitle);
+  const normalizedSecond = normalizeTitle(secondTitle);
+
+  if (!normalizedFirst || !normalizedSecond) {
+    return false;
+  }
+
+  if (normalizedFirst === normalizedSecond) {
+    return true;
+  }
+
+  if (normalizedFirst.includes(normalizedSecond) || normalizedSecond.includes(normalizedFirst)) {
+    return true;
+  }
+
+  return hasLongCommonSequence(normalizedFirst, normalizedSecond);
+};
 
 /**
  * Hero section
@@ -491,7 +526,7 @@ export const competitions: TimelineItem[] = [
     title: 'CVPR MEIS workshop 2025, Best Paper Award',
     content: (
       <p>
-        <a className='italic text-cyan-700 hover:not-italic' href='https://openaccess.thecvf.com/content/CVPR2025W/MEIS/html/Gao_LangCoop_Collaborative_Driving_with_Language_CVPRW_2025_paper.html'>LangCoop: Collaborative Driving with Language</a> receives
+        <a className='italic text-cyan-700 hover:not-italic' href='https://openaccess.thecvf.com/content/CVPR2025W/MEIS/html/Gao_LangCoop_Collaborative_Driving_with_Language_CVPRW_2025_paper.html'>LangCoop: Collaborative Driving with Language</a> receives 
         <b>Best Paper Award</b> at CVPR MEIS workshop 2025.
       </p>
     )
@@ -545,20 +580,53 @@ export const competitions: TimelineItem[] = [
 
 export const onsubmission: PublicationItem[] = [
   {
+    title: 'AirV2X: Unified Air-Ground Vehicle-to-Everything Collaboration',
+    imageSrc: AirV2XImg,
+    authors: 'Xiangbo Gao, Yuheng Wu, Fengze Yang, Xuewen Luo, Keshu Wu, Xinghao Chen, Yuping Wang, Chenxi Liu, Yang Zhou, Zhengzhong Tu',
+    conference: 'ArXiv 2025',
+    paperlink: 'https://arxiv.org/abs/2506.19283',
+    paperlinksmall: 'https://arxiv.org/abs/2506.19283',
+    githublink: 'https://github.com/taco-group/AirV2X-Perception',
+    description: 'While multi-vehicle collaboration improves safety and efficiency, traditional infrastructure-based V2X systems face high deployment costs and poor coverage in rural areas. To address this, we introduce AirV2X-Perception, a large-scale dataset that uses UAVs as flexible, low-cost perception units providing dynamic, occlusion-free bird’s-eye views. Spanning 6.73 hours of diverse driving scenarios, the dataset enables standardized development and evaluation of Vehicle-to-Drone (V2D) algorithms for aerial-assisted autonomous driving.' ,
+    projectpage: 'https://xiangbogaobarry.github.io/AirV2X/',
+  },
+  {
+    title: 'SafeCoop: Unravelling Full Stack Safety in Agentic Collaborative Driving',
+    imageSrc: SafeCoopImg,
+    authors: 'Xiangbo Gao, Tzu-Hsiang Lin, Ruojing Song, Yuheng Wu, Kuan-Ru Huang, Zicheng Jin, Fangzhou Lin, Shinan Liu, Zhengzhong Tu',
+    conference: 'ArXiv 2025',
+    paperlink: 'https://www.arxiv.org/abs/2510.18123',
+    paperlinksmall: 'https://www.arxiv.org/abs/2510.18123',
+    githublink: 'https://github.com/taco-group/SafeCoop',
+    description: 'Collaborative driving systems utilize vehicle-to-everything (V2X) communication to enhance safety and efficiency, but traditional approaches face bandwidth, semantic, and interoperability limitations. Emerging language-driven V2X frameworks offer richer semantics and reasoning capabilities yet introduce new vulnerabilities such as message loss and semantic manipulation. To address these, we propose SafeCoop, an agentic defense pipeline that safeguards language-based collaboration through semantic firewalls, consistency checks, and multi-source consensus, achieving significant safety gains in closed-loop evaluations.' ,
+    projectpage: 'https://xiangbogaobarry.github.io/SafeCoop/',
+  },
+
+];
+
+export const selected: PublicationItem[] = [
+  {
+    title: 'LangCoop: Collaborative Driving with Language',
+    imageSrc: LangCoopImg,
+    authors: 'Xiangbo Gao, Runsheng Xu, Jiachen Li, Ziran Wang, Zhiwen Fan, Zhengzhong Tu',
+    conference: 'CVPR 2025',
+    paperlink: 'https://arxiv.org/abs/2504.13406',
+    paperlinksmall: 'https://arxiv.org/abs/2504.13406',
+    githublink: 'https://github.com/taco-group/LangCoop',
+    description: 'Multi-agent collaboration enhances autonomous driving by enabling connected vehicles to share information, but current communication methods suffer from bandwidth, heterogeneity, and information loss issues. We propose LangCoop, a language-driven collaboration framework that uses natural language as a compact, expressive medium for inter-agent communication. Featuring M3CoT for structured reasoning and LangPack for efficient message encoding, LangCoop achieves a 96% reduction in bandwidth while maintaining strong closed-loop driving performance in CARLA simulations.' ,
+    projectpage: 'https://xiangbogaobarry.github.io/LangCoop/',
+  },
+  {
     title: 'AutoTrust: Benchmarking Trustworthiness in Large Vision Language Models for Autonomous Driving',
     imageSrc: AutoTrustImg,
     authors: 'Shuo Xing, Hongyuan Hua, Xiangbo Gao, Shenzhe Zhu, Renjie Li, Kexin Tian, Xiaopeng Li, Heng Huang, Tianbao Yang, Zhangyang Wang, Yang Zhou, Huaxiu Yao, Zhengzhong Tu',
-    conference: 'Arxiv',
+    conference: 'TMLR 2026',
     paperlink: 'https://arxiv.org/abs/2412.15206',
     paperlinksmall: 'https://arxiv.org/abs/2412.15206',
     githublink: 'https://github.com/taco-group/autotrust?tab=readme-ov-file',
     description: 'AutoTrust is a groundbreaking benchmark designed to assess the trustworthiness of DriveVLMs. This work aims to enhance public safety by ensuring DriveVLMs operate reliably across critical dimensions.' ,
     projectpage: 'https://taco-group.github.io/AutoTrust/',
   },
-
-];
-
-export const selected: PublicationItem[] = [
   {
     title: 'STAMP: Scalable Task- And Model-agnostic Collaborative Perception',
     imageSrc: STAMPImg,
@@ -607,6 +675,26 @@ export const selected: PublicationItem[] = [
   }
 ];
 
+const manuallyCuratedPublications: PublicationItem[] = [...selected, ...onsubmission];
+const seenAutoPublicationTitles = new Set<string>();
+
+export const autoPublicationsUnlisted: PublicationItem[] = autoPublications.filter((autoItem) => {
+  if (!autoItem.title) {
+    return false;
+  }
+
+  const normalizedTitle = normalizeTitle(autoItem.title);
+  if (normalizedTitle && seenAutoPublicationTitles.has(normalizedTitle)) {
+    return false;
+  }
+
+  if (normalizedTitle) {
+    seenAutoPublicationTitles.add(normalizedTitle);
+  }
+
+  return !manuallyCuratedPublications.some((manualItem) => titlesLikelyMatch(autoItem.title, manualItem.title));
+});
+
 /**
  * Testimonial section
  */
@@ -644,6 +732,11 @@ export const contact: ContactSection = {
       type: ContactType.Email,
       text: 'xiangbogaobarry@gmail.com',
       href: 'mailto:xiangbogaobarry@gmail.com',
+    },
+      {
+      type: ContactType.Email,
+      text: 'xiangbog@tamu.edu',
+      href: 'mailto:xiangbog@tamu.edu',
     },
     {
       type: ContactType.Location,
@@ -687,7 +780,7 @@ export const services: Service[] = [
     <ul className="cv-def-list">
       <li>
         <span className="cv-def-term">CV & ML:</span>
-        <span className="cv-def-desc ital">ICCV, CVPR, NeurIPS, TPAMI</span>
+        <span className="cv-def-desc ital">ICCV, CVPR, NeurIPS, T-PAMI</span>
       </li>
       <li>
         <span className="cv-def-term">Robotics:</span>
@@ -699,7 +792,36 @@ export const services: Service[] = [
       </li>
     </ul>
     ),
-    date: '2024 - Present',
+    date: '',
+    },
+    {
+    title: 'Program Committee Member',
+    description: (
+    <ul className="cv-def-list">
+      <li>
+        <a className="italic text-cyan-700 hover:not-italic" href="https://drivex-workshop.github.io/">
+          2nd DriveX Workshop @ CVPR 2025
+        </a>
+      </li>
+    </ul>
+    ),
+    date: '',
+    },
+    {
+    title: 'Invited Speaker',
+    description: (
+    <ul className="cv-def-list">
+      <li>
+        <a className="italic text-cyan-700 hover:not-italic" href="https://coop-intelligence.github.io/">
+          Invited Talk @ MEIS Workshop, CVPR 2025
+        </a>
+      </li>
+      <li>
+        Invited Talk @ Large Language Model Applications in Civil Engineering Workshop, 2025
+      </li>
+    </ul>
+    ),
+    date: '',
     }
 ]
 
@@ -707,13 +829,12 @@ export const services: Service[] = [
 
 // export const publicationData = selected;                    // 已有的 selected Publications
 export const publicationData = autoPublications; 
+export const scholarMetrics: ScholarMetrics = autoScholarMetrics;
 export const aboutItem = aboutData;
 export const employmentItem = employment; // 工作经历
 export const competitionItem = competitions; // 竞赛经历
 export const contactItem = contact; // 联系方式
 export const socialLinksItem = socialLinks; // 社交链接
-
-
 
 // export const timelineData    = [...education, ...experience]; // 合并时间线
 export const timelineData    = [...education, ]; // 合并时间线

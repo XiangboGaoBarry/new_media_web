@@ -1,6 +1,6 @@
 import {FC, memo} from 'react';
 
-import {selected, onsubmission, SectionId} from '../../../data/data';
+import {selected, onsubmission, autoPublicationsUnlisted, SectionId} from '../../../data/data';
 import Section from '../../Layout/Section';
 import PublicationSection from './PublicationSection';
 import PublicationItem from './PublicationItem';
@@ -15,11 +15,18 @@ const Publication: FC = memo(() => {
             <PublicationItem item={item} key={`${item.title}-${index}`} />
           ))}
         </PublicationSection>
-        <PublicationSection title="On Submission">
+        <PublicationSection title="Preprints">
           {onsubmission.map((item, index) => (
             <PublicationItem item={item} key={`${item.title}-${index}`} />
           ))}
         </PublicationSection>
+        {autoPublicationsUnlisted.length > 0 && (
+          <PublicationSection title="More Publications">
+            {autoPublicationsUnlisted.map((item, index) => (
+              <PublicationItem item={item} key={`${item.title}-${index}`} />
+            ))}
+          </PublicationSection>
+        )}
       </div>
     </Section>
   );

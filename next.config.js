@@ -25,7 +25,6 @@ const nextConfig = {
   //   plugins: ['removeDimensions'],
   // },
   reactStrictMode: true,
-  swcMinify: true,
   trailingSlash: false,
   eslint: { ignoreDuringBuilds: true },
   images: {

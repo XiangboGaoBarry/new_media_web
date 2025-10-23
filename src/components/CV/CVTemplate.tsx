@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import { heroData, publicationData, timelineData, 
     aboutItem, employmentItem, competitionItem, contactItem, socialLinksItem,
-    services,
+    services, scholarMetrics,
 } from '../../data/data';
 import {
     ContactType,
@@ -62,6 +62,45 @@ export const CVTemplate = forwardRef<HTMLDivElement>((_, ref) => {
   const education = all.filter(t => t.type === 'education');
   const experience = all.filter(t => t.type === 'experience');
   const hobbyItem = aboutItem.aboutItems.find(a => a.label === 'Interests');
+  const resolvedMetrics = scholarMetrics ?? {
+    totalCitations: 0,
+    totalCitationsSince: 0,
+    totalCitationsSinceYear: null,
+    hIndex: 0,
+    hIndexSince: 0,
+    hIndexSinceYear: null,
+    i10Index: 0,
+    i10IndexSince: 0,
+    i10IndexSinceYear: null,
+  };
+  const {
+    totalCitations,
+    hIndex,
+    i10Index,
+  } = resolvedMetrics;
+  const formatNumber = (value?: number | null) =>
+    typeof value === 'number' && Number.isFinite(value)
+      ? value.toLocaleString('en-US')
+      : '0';
+  const scholarMetricRows = [
+    {
+      label: 'Citations',
+      value: totalCitations,
+    },
+    {
+      label: 'h-index',
+      value: hIndex,
+    },
+    {
+      label: 'i10-index',
+      value: i10Index,
+    },
+  ].filter(row => (row.value ?? 0) > 0);
+  const hasCitationMetrics = scholarMetricRows.length > 0;
+  const emailContacts = contactItem.items.filter(i => i.type === ContactType.Email);
+  const locationContacts = contactItem.items.filter(i => i.type === ContactType.Location);
+  const githubContacts = contactItem.items.filter(i => i.type === ContactType.Github);
+  const contactLinkClass = 'italic text-cyan-700 hover:not-italic';
 
   return (
     <div ref={ref} className="cv-container">
@@ -82,13 +121,47 @@ export const CVTemplate = forwardRef<HTMLDivElement>((_, ref) => {
       <section>
       <h2>Contact</h2>
         <ul className="cv-contact">
-            {contactItem.items
-            .filter(i => i.type === ContactType.Email)   // ← 仅保留 Email
-            .map((c, idx) => (
-                <li key={idx}>
-                Email: {c.text}
-                </li>
+            {emailContacts.length > 0 && (
+              <li>
+                Email:{' '}
+                {emailContacts.map((c, idx) => (
+                  <React.Fragment key={`${c.text}-${idx}`}>
+                    <a
+                      className={contactLinkClass}
+                      href={c.href ?? `mailto:${c.text}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {c.text}
+                    </a>
+                    {idx < emailContacts.length - 1 ? ', ' : null}
+                  </React.Fragment>
+                ))}
+              </li>
+            )}
+            {locationContacts.map((c, idx) => (
+              <li key={`loc-${idx}`}>
+                Location: {c.text}
+              </li>
             ))}
+            {githubContacts.length > 0 && (
+              <li>
+                Github:{' '}
+                {githubContacts.map((c, idx) => (
+                  <React.Fragment key={`${c.text}-${idx}`}>
+                    <a
+                      className={contactLinkClass}
+                      href={c.href ?? c.text}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {c.text}
+                    </a>
+                    {idx < githubContacts.length - 1 ? ', ' : null}
+                  </React.Fragment>
+                ))}
+              </li>
+            )}
         </ul>
 
         {/* <div className="cv-socials">
@@ -137,6 +210,19 @@ export const CVTemplate = forwardRef<HTMLDivElement>((_, ref) => {
         {published.length > 0 && (
         <section>
             <h2>Publications</h2>
+            {hasCitationMetrics && (
+              <div className="cv-citation-summary">
+                <span className="cv-citation-heading">Google Scholar Metrics</span>
+                <ul className="cv-citation-metrics">
+                  {scholarMetricRows.map(({ label, value }) => (
+                    <li key={label}>
+                      <span className="cv-citation-metric-label">{label}:</span>
+                      <span className="cv-citation-metric-value">{formatNumber(value)}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <ol>
             {published.map((p, idx) => (
                 <li key={idx} className="pub-item">
@@ -204,7 +290,7 @@ export const CVTemplate = forwardRef<HTMLDivElement>((_, ref) => {
     {/* ---------- SERVICES ---------- */}
     {services.length > 0 && (
     <section>
-        <h2>Services</h2>
+        <h2>Professional Services</h2>
         <ul>
         {services.map(({ date, title, description }, idx) => (
             <li key={idx} className="cv-two-col">
