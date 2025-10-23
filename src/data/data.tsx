@@ -69,6 +69,7 @@ export const SectionId = {
   Portfolio: 'portfolio',
   Resume: 'resume',
   Publications: 'publications',
+  Services: 'services',
   Skills: 'skills',
   Stats: 'stats',
   Testimonials: 'testimonials',
