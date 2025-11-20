@@ -4,7 +4,7 @@ export const autoPublications: PublicationItem[] = [
   {
     "title": "Autotrust: Benchmarking trustworthiness in large vision language models for autonomous driving",
     "authors": "S Xing, H Hua, X Gao, S Zhu, R Li, K Tian, X Li, H Huang, T Yang, Z Wang, ...",
-    "conference": "arXiv preprint arXiv:2412.15206, 2024",
+    "conference": "TMLR 2026, 2025",
     "paperlink": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bSpZc84AAAAJ&pagesize=100&citation_for_view=bSpZc84AAAAJ:u-x6o8ySG0sC",
     "paperlinksmall": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bSpZc84AAAAJ&pagesize=100&citation_for_view=bSpZc84AAAAJ:u-x6o8ySG0sC",
     "imageSrc": "",
@@ -35,22 +35,22 @@ export const autoPublications: PublicationItem[] = [
     "projectpage": ""
   },
   {
-    "title": "Sample hardness based gradient loss for long-tailed cervical cell detection",
-    "authors": "M Liu, X Li, X Gao, J Chen, L Shen, H Wu",
-    "conference": "MICCAI 2023, 109-119, 2022",
-    "paperlink": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bSpZc84AAAAJ&pagesize=100&citation_for_view=bSpZc84AAAAJ:d1gkVwhDpl0C",
-    "paperlinksmall": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bSpZc84AAAAJ&pagesize=100&citation_for_view=bSpZc84AAAAJ:d1gkVwhDpl0C",
+    "title": "LangCoop: Collaborative Driving with Language",
+    "authors": "X Gao, Y Wu, R Wang, C Liu, Y Zhou, Z Tu",
+    "conference": "🏆 CVPR 2025 MEIS Best Paper Award, 2025",
+    "paperlink": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bSpZc84AAAAJ&pagesize=100&citation_for_view=bSpZc84AAAAJ:Tyk-4Ss8FVUC",
+    "paperlinksmall": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bSpZc84AAAAJ&pagesize=100&citation_for_view=bSpZc84AAAAJ:Tyk-4Ss8FVUC",
     "imageSrc": "",
     "githublink": "",
     "description": "",
     "projectpage": ""
   },
   {
-    "title": "LangCoop: Collaborative Driving with Language",
-    "authors": "X Gao, Y Wu, R Wang, C Liu, Y Zhou, Z Tu",
-    "conference": "🏆 CVPR 2025 MEIS Best Paper Award, 2025",
-    "paperlink": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bSpZc84AAAAJ&pagesize=100&citation_for_view=bSpZc84AAAAJ:Tyk-4Ss8FVUC",
-    "paperlinksmall": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bSpZc84AAAAJ&pagesize=100&citation_for_view=bSpZc84AAAAJ:Tyk-4Ss8FVUC",
+    "title": "Sample hardness based gradient loss for long-tailed cervical cell detection",
+    "authors": "M Liu, X Li, X Gao, J Chen, L Shen, H Wu",
+    "conference": "MICCAI 2023, 109-119, 2022",
+    "paperlink": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bSpZc84AAAAJ&pagesize=100&citation_for_view=bSpZc84AAAAJ:d1gkVwhDpl0C",
+    "paperlinksmall": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bSpZc84AAAAJ&pagesize=100&citation_for_view=bSpZc84AAAAJ:d1gkVwhDpl0C",
     "imageSrc": "",
     "githublink": "",
     "description": "",
@@ -143,16 +143,27 @@ export const autoPublications: PublicationItem[] = [
     "githublink": "",
     "description": "",
     "projectpage": ""
+  },
+  {
+    "title": "Background Fades, Foreground Leads: Curriculum-Guided Background Pruning for Efficient Foreground-Centric Collaborative Perception",
+    "authors": "Y Wu, X Gao, Q Tau, Z Tu, D Lee",
+    "conference": "arXiv preprint arXiv:2510.19250, 2025",
+    "paperlink": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bSpZc84AAAAJ&pagesize=100&citation_for_view=bSpZc84AAAAJ:LkGwnXOMwfcC",
+    "paperlinksmall": "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=bSpZc84AAAAJ&pagesize=100&citation_for_view=bSpZc84AAAAJ:LkGwnXOMwfcC",
+    "imageSrc": "",
+    "githublink": "",
+    "description": "",
+    "projectpage": ""
   }
 ];
 
 
 export const autoScholarMetrics: ScholarMetrics = {
-  "totalCitations": 122,
-  "totalCitationsSince": 122,
+  "totalCitations": 148,
+  "totalCitationsSince": 148,
   "totalCitationsSinceYear": 2020,
-  "hIndex": 6,
-  "hIndexSince": 6,
+  "hIndex": 8,
+  "hIndexSince": 8,
   "hIndexSinceYear": 2020,
   "i10Index": 5,
   "i10IndexSince": 5,

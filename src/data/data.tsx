@@ -543,28 +543,28 @@ export const competitions: TimelineItem[] = [
       </p>
     )
   },
-  {
-    type: 'competitions',
-    date: '2020.4',
-    location: 'University of California, Irvine, CA, USA',
-    title: 'UCI 2020 Machine Learning Hackathon',
-    content: (
-      <p>
-        1st place on the <a className='italic text-cyan-700 hover:not-italic' href='https://github.com/XiangboGaoBarry/UCI-Hackathon-GPA/blob/master/democode_GPA_UCIhackthon.ipynb'>subproject</a> of 3D Human Pose with Scene Constraints
-      </p>
-    )
-  },
-  {
-    type: 'competitions',
-    date: '2020.2',
-    location: 'Irvine, CA',
-    title: 'Google Hash Code 2020 Algorithms Competition',
-    content: (
-      <p>
-        2nd place at UCI | Team name: &epsilon;=.99
-      </p>
-    )
-  },
+  // {
+  //   type: 'competitions',
+  //   date: '2020.4',
+  //   location: 'University of California, Irvine, CA, USA',
+  //   title: 'UCI 2020 Machine Learning Hackathon',
+  //   content: (
+  //     <p>
+  //       1st place on the <a className='italic text-cyan-700 hover:not-italic' href='https://github.com/XiangboGaoBarry/UCI-Hackathon-GPA/blob/master/democode_GPA_UCIhackthon.ipynb'>subproject</a> of 3D Human Pose with Scene Constraints
+  //     </p>
+  //   )
+  // },
+  // {
+  //   type: 'competitions',
+  //   date: '2020.2',
+  //   location: 'Irvine, CA',
+  //   title: 'Google Hash Code 2020 Algorithms Competition',
+  //   content: (
+  //     <p>
+  //       2nd place at UCI | Team name: &epsilon;=.99
+  //     </p>
+  //   )
+  // },
   // {
   //   type: 'competitions',
   //   date: '2020.6',
@@ -781,15 +781,15 @@ export const services: Service[] = [
     <ul className="cv-def-list">
       <li>
         <span className="cv-def-term">CV & ML:</span>
-        <span className="cv-def-desc ital">ICCV, CVPR, NeurIPS, T-PAMI</span>
+        <span className="cv-def-desc ital">ICCV, CVPR, ICLR, NeurIPS, T-PAMI</span>
       </li>
       <li>
         <span className="cv-def-term">Robotics:</span>
-        <span className="cv-def-desc ital">ICRA, IROS, RA-L</span>
+        <span className="cv-def-desc ital">RA-L</span>
       </li>
       <li>
         <span className="cv-def-term">Transportation:</span>
-        <span className="cv-def-desc ital">ITSC, TRB</span>
+        <span className="cv-def-desc ital">TRBAM</span>
       </li>
     </ul>
     ),
