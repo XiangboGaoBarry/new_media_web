@@ -1,841 +1,133 @@
-import {
-  AcademicCapIcon,
-  CalendarIcon,
-  DownloadIcon,
-  FlagIcon,
-  MapIcon,
-  // OfficeBuildingIcon,
-  SparklesIcon,
-} from '@heroicons/react/outline';
+// import {
+//   AcademicCapIcon,
+//   CalendarIcon,
+//   DownloadIcon,
+//   FlagIcon,
+//   MapIcon,
+//   SparklesIcon,
+// } from '@heroicons/react/outline';
 
-import {FaTwitter} from 'react-icons/fa';
-import {SiZhihu} from 'react-icons/si';
-import { autoPublications, autoScholarMetrics } from './publications.generated';
+import { FaTwitter } from 'react-icons/fa';
+import { SiZhihu } from 'react-icons/si';
+
 import GithubIcon from '../components/Icon/GithubIcon';
-import GoogleScholarIcon from '../components/Icon/GoogleScholarIcon';
-// import InstagramIcon from '../components/Icon/InstagramIcon';
 import LinkedInIcon from '../components/Icon/LinkedInIcon';
-// import StackOverflowIcon from '../components/Icon/StackOverflowIcon';
-// import TwitterIcon from '../components/Icon/TwitterIcon';
-import heroImage from '../images/header-background.webp';
 import profilepic from '../images/profilepic.jpg';
-import myImage from '../images/myimg.png';
-import testimonialImage from '../images/testimonial.webp';
-import AutoSortTrashBin from '../images/portfolio/AutoSortTrashBin.png';
-import WasteRecognition from '../images/portfolio/WasteRecognition.png';
-import TimeManager from '../images/portfolio/TimeManager.png';
-import GeometicPoseAffordance from '../images/portfolio/GeometicPoseAffordance.png';
-import PQAttackImg from '../images/publications/PQGAN.png';
-import GradientLibraLossImg from '../images/publications/LibraLoss.png';
-import MambaSTImg from '../images/publications/mambaST.png';
-import AutoTrustImg from '../images/publications/autoTrust.png';
-import STAMPImg from '../images/publications/STAMP.png';
-import AirV2XImg from '../images/publications/AirV2X.png';
-import LangCoopImg from '../images/publications/LangCoop.png';
-import SafeCoopImg from '../images/publications/SafeCoop.png';
 
 
 import {
-  About,
-  ContactSection,
-  ContactType,
-  Hero,
   HomepageMeta,
-  PortfolioItem,
-  SkillGroup,
+  Introduction,
+  MediaSection,
+  Challenge,
   Social,
-  TestimonialSection,
-  TimelineItem,
-  PublicationItem,
-  Service,
-  ScholarMetrics,
 } from './dataDef';
 
 /**
  * Page meta data
  */
 export const homePageMeta: HomepageMeta = {
-  title: 'Xiangbo Gao',
-  description: "Xiangbo Gao's personal website",
+  title: 'Xiangbo Gao - HCI Class Page',
+  description: "Xiangbo Gao's personal website for HCI class",
 };
 
 /**
- * Section definition
+ * Introduction Section
  */
-export const SectionId = {
-  Hero: 'hero',
-  About: 'about',
-  Contact: 'contact',
-  Portfolio: 'portfolio',
-  Resume: 'resume',
-  Publications: 'publications',
-  Services: 'services',
-  Skills: 'skills',
-  Stats: 'stats',
-  Testimonials: 'testimonials',
-} as const;
-
-export type SectionId = typeof SectionId[keyof typeof SectionId];
-
-const TITLE_MATCH_MIN_LENGTH = 20;
-
-const normalizeTitle = (title: string): string => title.toLowerCase().replace(/[^a-z0-9]/g, '');
-
-const hasLongCommonSequence = (first: string, second: string, minLength = TITLE_MATCH_MIN_LENGTH): boolean => {
-  if (first.length < minLength || second.length < minLength) {
-    return false;
-  }
-
-  const shorter = first.length <= second.length ? first : second;
-  const longer = shorter === first ? second : first;
-
-  for (let index = 0; index <= shorter.length - minLength; index += 1) {
-    const slice = shorter.slice(index, index + minLength);
-    if (longer.includes(slice)) {
-      return true;
-    }
-  }
-
-  return false;
-};
-
-const titlesLikelyMatch = (firstTitle: string, secondTitle: string): boolean => {
-  const normalizedFirst = normalizeTitle(firstTitle);
-  const normalizedSecond = normalizeTitle(secondTitle);
-
-  if (!normalizedFirst || !normalizedSecond) {
-    return false;
-  }
-
-  if (normalizedFirst === normalizedSecond) {
-    return true;
-  }
-
-  if (normalizedFirst.includes(normalizedSecond) || normalizedSecond.includes(normalizedFirst)) {
-    return true;
-  }
-
-  return hasLongCommonSequence(normalizedFirst, normalizedSecond);
-};
-
-/**
- * Hero section
- */
-export const heroData: Hero = {
-  imageSrc: heroImage,
-  personalSrc: profilepic,
-  name: `Xiangbo Gao`,
+export const introductionData: Introduction = {
+  name: "Xiangbo Gao",
+  imageSrc: profilepic,
   description: (
     <>
       <p className="prose-sm text-stone-200 sm:prose-base lg:prose-lg">
-        I love to use deep learning to solve real-world problems.
+        Ph.D. student at Texas A&M University.
       </p>
     </>
   ),
-  actions: [
-    {
-      href: 'assets/Resume_short.pdf',
-      text: 'Resume (short)(2024.3)',
-      primary: true,
-      Icon: DownloadIcon,
-    },
-    // {
-    //   href: 'assets/Resume_long.pdf',
-    //   text: 'Resume (long)',
-    //   primary: true,
-    //   Icon: DownloadIcon,
-    // },
-    {
-      href: 'assets/Resume_chinese.pdf',
-      text: '简历（中文）(2024.3)',
-      primary: true,
-      Icon: DownloadIcon,
-    },
-    {
-      href: `#${SectionId.Contact}`,
-      text: 'Contact',
-      primary: false,
-    },
-  ],
-};
-
-/**
- * About section
- */
-export const aboutData: About = {
-  profileImageSrc: myImage,
-  description: `Autonomous Driving | Multi-agent Collaborative Perception | Aerial & Grounded Agent Cooperation | Current PhD @ TAMU | MS @ Umich | BS @ UCI`,
-  aboutItems: [
-    {label: 'Location', text: 'Texas A&M University, College Station, TX', Icon: MapIcon},
-    {label: 'Age', text: '25', Icon: CalendarIcon},
-    {label: 'Nationality', text: 'China', Icon: FlagIcon},
-    {label: 'Interests', text: 'Snowboarding, Skiing, Rock climbing', Icon: SparklesIcon},
-    {label: 'Study', text: 'Texas A&M University, College Station, TX', Icon: AcademicCapIcon},
-    // {label: 'Employment', text: 'Instant Domains, inc.', Icon: OfficeBuildingIcon},
-  ],
-};
-
-/**
- * Skills section
- */
-export const skills: SkillGroup[] = [
-  {
-    name: 'Spoken languages',
-    skills: [
-      {
-        name: 'Chinese',
-        level: 10,
-      },
-      {
-        name: 'English',
-        level: 7,
-      },
-      // {
-      //   name: 'Spanish',
-      //   level: 3,
-      // },
-    ],
-  },
-  {
-    name: 'Research areas',
-    skills: [
-      {
-        name: 'Computer Vision',
-        level: 6,
-      },
-      {
-        name: 'Graph Learning',
-        level: 4,
-      },
-      {
-        name: 'Reinforcement Learning',
-        level: 3,
-      },
-    ],
-  },
-  {
-    name: 'Programming languages',
-    skills: [
-      {
-        name: 'Python',
-        level: 9,
-      },
-      {
-        name: 'C++',
-        level: 4,
-      },
-      {
-        name: 'Java',
-        level: 3,
-      },
-    ],
-  },
-  {
-    name: 'Soft skills',
-    skills: [
-      {
-        name: 'Communication',
-        level: 8,
-      },
-      {
-        name: 'Leadership',
-        level: 8,
-      },
-      {
-        name: 'Humour',
-        level: 0.1,
-      },
-    ],
-  },
-];
-
-/**
- * Portfolio section
- */
-
-export const portfolioItems: PortfolioItem[] = [
-  {
-    title: 'Auto Sort Trash Bin',
-    description: 'A trash bin that automatic sort four different categories of trash',
-    url: 'assets/documents/portfolio/AutoSortTrashBin.pdf',
-    image: AutoSortTrashBin,
-  },
-  {
-    title: 'ZotBins Waste Recognition',
-    description: 'Waste classification and waste object detection modules for ZotBins',
-    url: 'https://github.com/zotbins/Zotbins-Waste-Recognition',
-    image: WasteRecognition,
-  },
-  {
-    title: 'Time Manager',
-    description: 'A time manager app built with React, Node.js, and MongoDB',
-    url: 'https://github.com/XiangboGaoBarry/TimeManager',
-    image: TimeManager,
-  },
-  {
-    title: 'Geometic Pose Affordance',
-    description: 'Project of UCI Hackathon 2020',
-    url: 'https://github.com/XiangboGaoBarry/UCI-Hackathon-GPA/blob/master/democode_GPA_UCIhackthon.ipynb',
-    image: GeometicPoseAffordance,
-  },
-  {
-    title: 'PQAttack',
-    description: 'Project Repo of "Adversarial Attack with Semantic Pattern"',
-    url: 'https://github.com/XiangboGaoBarry/PQAttack',
-    image: PQAttackImg,
-  },
-];
-
-/**
- * Resume section -- TODO: Standardize resume contact format or offer MDX
- */
-export const education: TimelineItem[] = [
-  {
-    type: 'education',
-    date: '2025.1 - Present',
-    location: 'Texas A&M University',
-    title: 'Ph.D. in Computer Science',
-    content: <p> </p>,
-  },
-  {
-    type: 'education',
-    date: '2023.9 - 2024.12',
-    location: 'University of Michigan, Ann Arbor',
-    title: 'M.S. in Robotics',
-    content: <p> </p>,
-  },
-  {
-    type: 'education',
-    date: '2018.9 - 2023.3',
-    location: 'University of California, Irvine',
-    title: 'B.S. in Computer Science | B.S. in Mathematics',
-    content: <p></p>,
-  },
-  // {
-  //   type: 'education',
-  //   date: '2019.6 - 2019.9',
-  //   location: 'University of California, Berkeley',
-  //   title: 'Summer Session',
-  //   content: <p></p>,
-  // },
-];
-
-// export const experience: TimelineItem[] = [
-//   {   
-//     date: '2022.6 - Present',
-//     location: 'Independent',
-//     title: 'Multi-modal 3D Object Detection in autonomous driving scenario',
-//     content: (
-//       <p></p>
-//       // <ul>
-//       // <li>-iterature review of existing general 3D object detection algorithms including camera-based, point-based, voxel-based, and multi-model algorithms.</li>
-//       // <li>-Reproduce and improve existing camera-only and multi-model 3D object detection algorithms (Pseudo-LiDAR, Lidar Painting, Bev fusion).</li>
-//       // </ul>
-//     ),
-//   },
-//   {
-//     date: '2022.5 - Present',
-//     location: 'Advanced Integrated Cyber-Physical Systems Lab, University of California, Irvine',
-//     title: 'Auto-generated graphical model in the autonomous driving system',
-//     content: (
-//       <p></p>
-//       // <ul>
-//       // <li>-Designed and created a multi-domain autonomous driving dataset for different driving scenarios using CARLA simulator.</li>
-//       // <li>-Designed a probabilistic LSTM structure that encodes states to variational embeddings. Transferred the knowledge from PointNet to encode the unordered lane marks information.</li>
-//       // <li>-Evaluating the model performance and cross-domain transferability by various metrics and comparing them with other motion prediction algorithms (MTP, PGP, Trajectron++, etc.)</li>
-//       // </ul>
-//     ),
-//   },
-//   {
-//     date: '2022.2 - 2022.6',
-//     location: 'Intelligent Dynamics Lab, University of California, Irvine',
-//     title: 'Goal-conditional Reinforcement Learning',
-//     content: (
-//       <p></p>
-// //       <ul>
-// //       <li>-Reviewed literature on imitation learning and general reinforcement learning.</li>
-// //       <li>-Come up with spring loss which uses the idea of contrastive learning that aligns the
-// // embeddings in linear distance.</li>
-// //       <li>-Visualization by the PCA dimension reduction method shows that the learned embedding
-// // better aligns with the real-world trajectory.</li>
-// //       </ul>
-//     ),
-//   },
-  
-//   {
-//     date: '2021.4 - 2022.11',
-//     location: 'Institute of Computer Vision, Shenzen University, China',
-//     title: 'Adversarial Attack with Semantic Pattern',
-//     content: (
-//       <p></p>
-// //       <ul>
-// //       <li>-Proposed a novel Patch Quilting Generative Adversarial Network (PQ-GAN) training strategy
-// // that learned a set of cascaded generators to manipulate image patterns of varying scales
-// // without distortion or discontinuity.</li>
-// //       <li>-Applied the PQ-GAN to adversarial attacks that delivered state-of-the-art attack strength
-// // and robustness with respect to various types of defense algorithms.</li>
-// //       <li>-Published work <a className='italic text-cyan-700 hover:not-italic' href='https://arxiv.org/pdf/2208.06222.pdf'> Scale-free and Task-agnostic Attack: Generating Photo-realistic Adversarial Patterns with Patch Quilting Generator.</a> </li>
-// //       </ul>
-//     ),
-//   },
-//   {
-//     date: '2021.4 - 2022.1',
-//     location: 'Institute of Computer Vision, Shenzen University, China',
-//     title: 'Long-tailed Cervical Cell Detection',
-//     content: (
-//       <p></p>
-// //       <ul>
-// //       <li>-Propose a Grad-Libra Loss that leverages the gradients to dynamically
-// // calibrate the hardness of each sample and rebalanced their gradients..</li>
-// //       <li>-Published work <a className='italic text-cyan-700 hover:not-italic' href='https://www.researchgate.net/profile/Xuechen-Li-5/publication/362567778_Sample_hardness_based_gradient_loss_for_long-tailed_cervical_cell_detection/links/632807bc071ea12e36443214/Sample-hardness-based-gradient-loss-for-long-tailed-cervical-cell-detection.pdf'> Sample Hardness Based Gradient Loss for Long-Tailed Cervical Cell Detection.</a> </li>
-// //       </ul>
-//     ),
-//   },
-//   {
-//     date: '2020.9 - 2022.4',
-//     location: 'Donald Bren Hall, University of California, Irvine',
-//     title: <div><a className='text-cyan-700' href='https://zotbins.github.io/'>ZerO</a> Waste Anteaters</div>,
-//     content: (
-//       <p></p>
-// //       <ul>
-// //       <li>-Led a team of 8 members to explore waste recognition solutions.</li>
-// //       <li>-Designed a computer vision and waste recognition tutorial that stimulate students' interests.</li>
-// //       <li>-Trained light-weight models for waste image classification (Mobilenetv3, ShuffleNet, and
-// // EfficientNet) and waste object detection (Faster-RCNN and YOLOv5); achieved ~0.94
-// // classification accuracy and ~0.76 mean precision error.</li>
-// //       <li>-Deployed the waste recognition models to resource-limited machines (Jetson Nano)</li>
-// //       </ul>
-//     ),
-//   }
-// ];
-
-// export const experience: TimelineItem[] = [
-//   {   
-//     date: '2022.6 - Present',
-//     location: 'Independent',
-//     title: 'Multi-modal 3D Object Detection in autonomous driving scenario',
-//     content: (<div></div>),
-//     },
-//   {
-//     date: '2022.5 - Present',
-//     location: 'Advanced Integrated Cyber-Physical Systems Lab, University of California, Irvine',
-//     title: 'Auto-generated graphical model in the autonomous driving system',
-//     content: (<div></div>),
-//   },
-//   {
-//     date: '2022.2 - 2022.6',
-//     location: 'Intelligent Dynamics Lab, University of California, Irvine',
-//     title: 'Goal-conditional Reinforcement Learning',
-//     content: (<div></div>),
-//   },
-//   {
-//     date: '2021.4 - 2022.11',
-//     location: 'Institute of Computer Vision, Shenzen University, China',
-//     title: 'Adversarial Attack with Semantic Pattern',
-//     content: (<div></div>),
-//   },
-//   {
-//     date: '2021.4 - 2022.11',
-//     location: 'Institute of Computer Vision, Shenzen University, China',
-//     title: 'Long-tailed Cervical Cell Detection',
-//     content: (<div></div>),
-//   },
-//   {
-//     date: '2020.9 - 2022.4',
-//     location: 'Donald Bren Hall, University of California, Irvine',
-//     title: <div><a className='text-cyan-700' href='https://zotbins.github.io/'>ZerO</a> Waste Anteaters</div>,
-//     content: (<div></div>),
-//   }
-// ];
-
-
-export const employment: TimelineItem[] = [
-  {
-    type: 'employment',
-    date: '2025.1 - Present',
-    location: 'TACO Group @ Texas A&M University',
-    title: 'Graduate Research Assistant',
-    content: (
-      <p></p>
-    )
-  },	 
-  {
-    type: 'employment',
-    date: '2024.7 - 2024.12',
-    location: 'Map and Motion Lab @ University of Michigan, Ann Arbor',
-    title: 'Graduate Research Assistant',
-    content: (
-      <p></p>
-    )
-  },	         
-  {
-    type: 'employment',
-    date: '2023.12 - 2024.6',
-    location: 'UM Ford Center for Autonomous Vehicles (FCAV)',
-    title: 'Graduate Research Assistant',
-    content: (
-      <p></p>
-    )
-  },
-  {
-    type: 'employment',
-    date: '2023.4 - 2023.7',
-    location: 'Anhui Cowa ROBOT Co., Ltd, Shanghai, China',
-    title: 'Perception Research Intern',
-    content: (
-      <p></p>
-    // <ul>
-    //   <li>-Online HD Map Construction with Flow Map Prior (3.2% higher mAP than the baseline) </li>
-    //   <ul>
-    //     <li>---Propose to use historical vehicle trajectories as prior</li>
-    //     <li>---Reproduce the neural map prior and allivate the catastrophic forgetting problem by adding noise and dummy features.</li>
-    //     <li>---Propose Keypoints DTW Loss to increase the consistency of the regression loss</li>  
-    //     <li>---Inspired by BevFormerV2, implement 2D auxiliary keypoints detection to further boost the accuracy.</li>
-    //   </ul>
-    //   <li>-Motion Prediction with Historical Trajectories Clustering</li>
-    // </ul>
-    
-    )
-  },
-  {
-    type: 'employment',
-    date: '2020.6 - 2020.8',
-    location: 'Tandll Investment Management Limited, China',
-    title: 'Full-stack Software developer',
-    content: (
-      <p></p>
-    // <p>
-    //   -Built a quantitative trading support website using Python (Django & React) and MySQL, which supported high-level trading management, model parameters modification, and historical data & behaviors Visualization</p>
-    )
-  },
-  {
-    type: 'employment',
-    date: '2019.2 - 2019.7',
-    location: 'Calit 2, University of California, Irvine',
-    title: 'VR Software developer',
-    content: (<p>
-      {/* -Worked with a team of 6 to Develop a simple-to-understand VR teaching aid of MA6 Mask Aligner, which enables students to use the machine without physically getting into the clean room. */}
-    </p>)
-  }
-]
-
-export const competitions: TimelineItem[] = [
-  {
-    type: 'competitions',
-    date: '2025.6',
-    location: 'N/A',
-    title: 'CVPR MEIS workshop 2025, Best Paper Award',
-    content: (
+  statement: (
+    <div className="prose-sm text-stone-200 sm:prose-base lg:prose-lg mt-4">
       <p>
-        <a className='italic text-cyan-700 hover:not-italic' href='https://openaccess.thecvf.com/content/CVPR2025W/MEIS/html/Gao_LangCoop_Collaborative_Driving_with_Language_CVPRW_2025_paper.html'>LangCoop: Collaborative Driving with Language</a> receives 
-        <b>Best Paper Award</b> at CVPR MEIS workshop 2025.
+        I am taking this class to gain a deeper understanding of Human-Computer Interaction and to explore how we interact with various forms of media in our daily lives. As a researcher in video generation and editing, I am interested in how humans perceive and generate content, and how we can build better tools to support these activities.
       </p>
-    )
-  },
-  {
-    type: 'competitions',
-    date: '2023.5',
-    location: 'N/A',
-    title: 'CVPR Camera-based online HD map construction challenge 2023',
-    content: (
-      <p>
-        Rank 13th in <a className='italic text-cyan-700 hover:not-italic' href='https://github.com/Tsinghua-MARS-Lab/Online-HD-Map-Construction-CVPR2023'>CVPR Camera-based online HD map construction challenge 2023</a> 
-      </p>
-    )
-  },
-  // {
-  //   type: 'competitions',
-  //   date: '2020.4',
-  //   location: 'University of California, Irvine, CA, USA',
-  //   title: 'UCI 2020 Machine Learning Hackathon',
-  //   content: (
-  //     <p>
-  //       1st place on the <a className='italic text-cyan-700 hover:not-italic' href='https://github.com/XiangboGaoBarry/UCI-Hackathon-GPA/blob/master/democode_GPA_UCIhackthon.ipynb'>subproject</a> of 3D Human Pose with Scene Constraints
-  //     </p>
-  //   )
-  // },
-  // {
-  //   type: 'competitions',
-  //   date: '2020.2',
-  //   location: 'Irvine, CA',
-  //   title: 'Google Hash Code 2020 Algorithms Competition',
-  //   content: (
-  //     <p>
-  //       2nd place at UCI | Team name: &epsilon;=.99
-  //     </p>
-  //   )
-  // },
-  // {
-  //   type: 'competitions',
-  //   date: '2020.6',
-  //   location: 'China',
-  //   title: 'Netease Hackathon Competition',
-  //   content: (
-  //     <p>
-  //       Outstanding Award
-  //     </p>
-  //   )
-  // }
-]
-
-
-export const onsubmission: PublicationItem[] = [
-  {
-    title: 'AirV2X: Unified Air-Ground Vehicle-to-Everything Collaboration',
-    imageSrc: AirV2XImg,
-    authors: 'Xiangbo Gao, Yuheng Wu, Fengze Yang, Xuewen Luo, Keshu Wu, Xinghao Chen, Yuping Wang, Chenxi Liu, Yang Zhou, Zhengzhong Tu',
-    conference: 'ArXiv 2025',
-    paperlink: 'https://arxiv.org/abs/2506.19283',
-    paperlinksmall: 'https://arxiv.org/abs/2506.19283',
-    githublink: 'https://github.com/taco-group/AirV2X-Perception',
-    description: 'While multi-vehicle collaboration improves safety and efficiency, traditional infrastructure-based V2X systems face high deployment costs and poor coverage in rural areas. To address this, we introduce AirV2X-Perception, a large-scale dataset that uses UAVs as flexible, low-cost perception units providing dynamic, occlusion-free bird’s-eye views. Spanning 6.73 hours of diverse driving scenarios, the dataset enables standardized development and evaluation of Vehicle-to-Drone (V2D) algorithms for aerial-assisted autonomous driving.' ,
-    projectpage: 'https://xiangbogaobarry.github.io/AirV2X/',
-  },
-  {
-    title: 'SafeCoop: Unravelling Full Stack Safety in Agentic Collaborative Driving',
-    imageSrc: SafeCoopImg,
-    authors: 'Xiangbo Gao, Tzu-Hsiang Lin, Ruojing Song, Yuheng Wu, Kuan-Ru Huang, Zicheng Jin, Fangzhou Lin, Shinan Liu, Zhengzhong Tu',
-    conference: 'ArXiv 2025',
-    paperlink: 'https://www.arxiv.org/abs/2510.18123',
-    paperlinksmall: 'https://www.arxiv.org/abs/2510.18123',
-    githublink: 'https://github.com/taco-group/SafeCoop',
-    description: 'Collaborative driving systems utilize vehicle-to-everything (V2X) communication to enhance safety and efficiency, but traditional approaches face bandwidth, semantic, and interoperability limitations. Emerging language-driven V2X frameworks offer richer semantics and reasoning capabilities yet introduce new vulnerabilities such as message loss and semantic manipulation. To address these, we propose SafeCoop, an agentic defense pipeline that safeguards language-based collaboration through semantic firewalls, consistency checks, and multi-source consensus, achieving significant safety gains in closed-loop evaluations.' ,
-    projectpage: 'https://xiangbogaobarry.github.io/SafeCoop/',
-  },
-
-];
-
-export const selected: PublicationItem[] = [
-  {
-    title: 'LangCoop: Collaborative Driving with Language',
-    imageSrc: LangCoopImg,
-    authors: 'Xiangbo Gao, Runsheng Xu, Jiachen Li, Ziran Wang, Zhiwen Fan, Zhengzhong Tu',
-    conference: 'CVPR 2025',
-    paperlink: 'https://arxiv.org/abs/2504.13406',
-    paperlinksmall: 'https://arxiv.org/abs/2504.13406',
-    githublink: 'https://github.com/taco-group/LangCoop',
-    description: 'Multi-agent collaboration enhances autonomous driving by enabling connected vehicles to share information, but current communication methods suffer from bandwidth, heterogeneity, and information loss issues. We propose LangCoop, a language-driven collaboration framework that uses natural language as a compact, expressive medium for inter-agent communication. Featuring M3CoT for structured reasoning and LangPack for efficient message encoding, LangCoop achieves a 96% reduction in bandwidth while maintaining strong closed-loop driving performance in CARLA simulations.' ,
-    projectpage: 'https://xiangbogaobarry.github.io/LangCoop/',
-  },
-  {
-    title: 'AutoTrust: Benchmarking Trustworthiness in Large Vision Language Models for Autonomous Driving',
-    imageSrc: AutoTrustImg,
-    authors: 'Shuo Xing, Hongyuan Hua, Xiangbo Gao, Shenzhe Zhu, Renjie Li, Kexin Tian, Xiaopeng Li, Heng Huang, Tianbao Yang, Zhangyang Wang, Yang Zhou, Huaxiu Yao, Zhengzhong Tu',
-    conference: 'TMLR 2026',
-    paperlink: 'https://arxiv.org/abs/2412.15206',
-    paperlinksmall: 'https://arxiv.org/abs/2412.15206',
-    githublink: 'https://github.com/taco-group/autotrust?tab=readme-ov-file',
-    description: 'AutoTrust is a groundbreaking benchmark designed to assess the trustworthiness of DriveVLMs. This work aims to enhance public safety by ensuring DriveVLMs operate reliably across critical dimensions.' ,
-    projectpage: 'https://taco-group.github.io/AutoTrust/',
-  },
-  {
-    title: 'STAMP: Scalable Task- And Model-agnostic Collaborative Perception',
-    imageSrc: STAMPImg,
-    authors: 'Xiangbo Gao, Runsheng Xu, Jiachen Li, Ziran Wang, Zhiwen Fan, Zhengzhong Tu',
-    conference: 'ICLR 2025',
-    paperlink: 'https://arxiv.org/abs/2501.18616',
-    paperlinksmall: 'https://arxiv.org/abs/2501.18616',
-    githublink: 'https://github.com/taco-group/STAMP',
-    description: 'STAMP is a new framework for multi-agent collaborative perception in autonomous driving that enables diverse vehicles to share sensor data efficiently. Using adapter-reverter pairs to convert between agent-specific and shared feature formats in Bird`s Eye View, it achieves better accuracy than existing methods while reducing computational costs and maintaining security across heterogeneous systems.' ,
-    projectpage: 'https://xiangbogaobarry.github.io/STAMP/',
-  },
-  {
-    title: 'MambaST: A Plug-and-Play Cross-Spectral Spatial-Temporal Fuser for Efficient Pedestrian Detection',
-    imageSrc: MambaSTImg,
-    authors: 'Xiangbo Gao, Asiegbu Miracle Kanu-Asiegbu, Xiaoxiao Du',
-    conference: 'ITSC 2024',
-    paperlink: 'https://arxiv.org/abs/2408.01037',
-    paperlinksmall: 'https://arxiv.org/abs/2408.01037',
-    githublink: 'https://github.com/XiangboGaoBarry/MambaST',
-    description: 'MambaST is a new framework for pedestrian detection that combines RGB and thermal camera data while leveraging temporal information. It uses a novel Multi-head Hierarchical Patching and Aggregation structure with state space models to efficiently process multi-spectral data, achieving better results on small-scale detection while being more computationally efficient than transformer-based approaches.',
-    projectpage: '',
-  },
-  {
-    title: 'Scale-free and Task-agnostic Attack: Generating Photo-realistic Adversarial Patterns with Patch Quilting Generator',
-    imageSrc: PQAttackImg,
-    authors: 'Xiangbo Gao, Cheng Luo, Qinliang Lin, Weicheng Xie, Minmin Liu, Linlin Shen, Keerthy Kusumam, Siyang Song',
-    conference: 'ICASSP 2024',
-    paperlink: 'https://arxiv.org/pdf/2208.06222.pdf',
-    paperlinksmall: 'assets/documents/publications/PQAttack.pdf',
-    githublink: 'https://github.com/XiangboGaoBarry/PQAttack',
-    // description: 'Traditional L_p norm-restricted image attack algorithms suffer from poor transferability to black box scenarios and poor robustness to defense algorithms. Recent CNN generator-based attack approaches can synthesize unrestricted and semantically meaningful entities to the image, which is shown to be transferable and robust. However, such methods attack images by either synthesizing local adversarial entities, which are only suitable for attacking specific contents or performing global attacks, which are only applicable to a specific image scale. In this paper, we propose a novel Patch Quilting Generative Adversarial Networks (PQ-GAN) to learn the first scale-free CNN generator that can be applied to attack images with arbitrary scales for various computer vision tasks. The principal investigation on transferability of the generated adversarial examples, robustness to defense frameworks, and visual quality assessment show that the proposed PQG-based attack framework outperforms the other nine state-of-the-art adversarial attack approaches when attacking the neural networks trained on two standard evaluation datasets (i.e., ImageNet and CityScapes).' 
-    description: 'PQ-GAN is a novel scale-free generator for adversarial attacks that works on images of any size. Unlike previous methods limited to local or fixed-scale attacks, it demonstrates superior transferability, defense resistance, and visual quality when tested against other attack methods on ImageNet and CityScapes datasets.',
-    projectpage: '',
-  },
-  {
-    title: 'Sample Hardness Based Gradient Loss for Long-Tailed Cervical Cell Detection',
-    imageSrc: GradientLibraLossImg,
-    authors: 'Minmin Liu, Xuechen Li, Xiangbo Gao, Junliang Chen, Linlin Shen, Huisi Wu',
-    conference: 'MICCAI 2022',
-    paperlink: 'https://arxiv.org/pdf/2208.03779.pdf',
-    paperlinksmall: 'assets/documents/publications/Gradient-Libra-Loss.pdf',
-    githublink: '',
-    // description: 'Due to the difficulty of cancer samples collection and annotation, cervical cancer datasets usually exhibit a long-tailed data distribution. When training a detector to detect the cancer cells in a WSI (Whole Slice Image) image captured from the TCT (Thinprep Cytology Test) specimen, head categories (e.g. normal cells and inflammatory cells) typically have a much larger number of samples than tail categories (e.g. cancer cells). Most existing state-of-the-art long-tailed learning methods in object detection focus on category distribution statistics to solve the problem in the long-tailed scenario without considering the "hardness" of each sample. To address this problem, in this work we propose a Grad-Libra Loss that leverages the gradients to dynamically calibrate the degree of hardness of each sample for different categories, and re-balance the gradients of positive and negative samples. Our loss can thus help the detector to put more emphasis on those hard samples in both head and tail categories. Extensive experiments on a long-tailed TCT WSI image dataset show that the mainstream detectors, e.g. RepPoints, FCOS, ATSS, YOLOF, etc. trained using our proposed Gradient-Libra Loss, achieved much higher (7.8%) mAP than that trained using cross-entropy classification loss.'
-    description: 'A new Grad-Libra Loss method improves cancer cell detection in imbalanced cervical cancer datasets by adjusting for both sample difficulty and category distribution, achieving 7.8% better accuracy than standard approaches.',
-    projectpage: '',
-  }
-];
-
-const manuallyCuratedPublications: PublicationItem[] = [...selected, ...onsubmission];
-const seenAutoPublicationTitles = new Set<string>();
-
-export const autoPublicationsUnlisted: PublicationItem[] = autoPublications.filter((autoItem) => {
-  if (!autoItem.title) {
-    return false;
-  }
-
-  const normalizedTitle = normalizeTitle(autoItem.title);
-  if (normalizedTitle && seenAutoPublicationTitles.has(normalizedTitle)) {
-    return false;
-  }
-
-  if (normalizedTitle) {
-    seenAutoPublicationTitles.add(normalizedTitle);
-  }
-
-  return !manuallyCuratedPublications.some((manualItem) => titlesLikelyMatch(autoItem.title, manualItem.title));
-});
-
-/**
- * Testimonial section
- */
-export const testimonial: TestimonialSection = {
-  imageSrc: testimonialImage,
-  testimonials: [
-    {
-      name: 'John Doe',
-      text: 'Use this as an opportunity to promote what it is like to work with you. High value testimonials include ones from current or past co-workers, managers, or from happy clients.',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/169.jpg',
-    },
-    {
-      name: 'Jane Doe',
-      text: 'Here you should write some nice things that someone has said about you. Encourage them to be specific and include important details (notes about a project you were on together, impressive quality produced, etc).',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/14.jpg',
-    },
-    {
-      name: 'Someone else',
-      text: 'Add several of these, and keep them as fresh as possible, but be sure to focus on quality testimonials with strong highlights of your skills/work ethic.',
-      image: 'https://cloudflare-ipfs.com/ipfs/Qmd3W5DuhgHirLHGVixi6V76LhCkZUz6pnFt5AJBiyvHye/avatar/69.jpg',
-    },
-  ],
+    </div>
+  )
 };
 
 /**
- * Contact section
+ * Media Usage Section
  */
-
-export const contact: ContactSection = {
-  headerText: 'Get in touch.',
-  description: '',
-  // 'Here is a good spot for a message to your readers to let them know how best to reach out to you.',
-  items: [
+export const mediaData: MediaSection = {
+  consumer: [
     {
-      type: ContactType.Email,
-      text: 'xiangbogaobarry@gmail.com',
-      href: 'mailto:xiangbogaobarry@gmail.com',
-    },
-      {
-      type: ContactType.Email,
-      text: 'xiangbog@tamu.edu',
-      href: 'mailto:xiangbog@tamu.edu',
+      name: "Moving Images",
+      items: [
+        { name: "Science Fiction", subCategory: "Movies/TV", device: "TV/Laptop" },
+        { name: "Tech Reviews", subCategory: "YouTube/Bilibili", device: "Phone/Laptop" },
+        { name: "Academic Talks", subCategory: "Conference Videos", device: "Laptop" }
+      ]
     },
     {
-      type: ContactType.Location,
-      text: 'Texas A&M University, College Station, TX',
-      // href: 'https://www.google.ca/maps/place/Victoria,+BC/@48.4262362,-123.376775,14z',
+      name: "Text & Social Media",
+      items: [
+        { name: "Research Papers", subCategory: "PDFs", device: "Tablet/Laptop" },
+        { name: "Tech News", subCategory: "X (Twitter)/Websites", device: "Phone" },
+        { name: "Knowledge Sharing", subCategory: "Zhihu", device: "Phone" },
+        { name: "Lifestyle", subCategory: "Xiaohongshu", device: "Phone" }
+      ]
     },
-    // {
-    //   type: ContactType.Instagram,
-    //   text: '@tbakerx',
-    //   href: 'https://www.instagram.com/tbakerx/',
-    // },
     {
-      type: ContactType.Github,
-      text: 'XiangboGaoBarry',
-      href: 'https://github.com/XiangboGaoBarry',
-    },
+      name: "Games",
+      items: [
+        { name: "Strategy Games", subCategory: "PC", device: "Desktop" }
+      ]
+    }
   ],
+  generator: [
+    {
+      name: "Text & Code",
+      items: [
+        { name: "Code", subCategory: "GitHub/Python/C++", device: "Laptop" },
+        { name: "Academic Papers", subCategory: "LaTeX", device: "Laptop" },
+        { name: "Professional Profile", subCategory: "LinkedIn", device: "Laptop" },
+        { name: "Knowledge Sharing", subCategory: "Zhihu/Xiaohongshu", device: "Phone" },
+        { name: "Emails", subCategory: "Communication", device: "Laptop/Phone" },
+      ]
+    },
+    {
+      name: "Visuals",
+      items: [
+        { name: "Presentation Slides", subCategory: "PowerPoint", device: "Laptop" },
+        { name: "Data Visualizations", subCategory: "Python/Matplotlib", device: "Laptop" }
+      ]
+    }
+  ]
+};
+
+/**
+ * Challenge Section
+ */
+export const challengeData: Challenge = {
+  description: (
+    <div className="prose-sm text-stone-800 sm:prose-base lg:prose-lg">
+      <p>
+        <strong>Challenge: Managing Scattered Digital Knowledge</strong>
+      </p>
+      <p className="mt-2">
+        One significant challenge I face in my content generation workflow (specifically for research and coding) is managing scattered knowledge. I generate a lot of content in the form of code snippets, reading notes, paper summaries, and experimental logs. These are often scattered across different tools: local markdown files, Notion pages, innovative code comments, and physical notebooks.
+      </p>
+      <p className="mt-2">
+        <strong>Difficulty:</strong> It is difficult to synthesize this information when I need to write a paper or revisit a project. Searching across these disparate sources is inefficient, and often I find myself re-learning or re-writing things I have already documented but cannot find. The friction of context switching between these tools disrupts my "flow" state during content generation.
+      </p>
+    </div>
+  )
 };
 
 /**
  * Social items
  */
 export const socialLinks: Social[] = [
-  {label: 'Github', Icon: GithubIcon, href: 'https://github.com/XiangboGaoBarry'},
-  {label: 'Google Scholar', Icon: GoogleScholarIcon, href: 'https://scholar.google.com/citations?user=bSpZc84AAAAJ&hl=en'},
-  // {label: 'Stack Overflow', Icon: StackOverflowIcon, href: 'https://stackoverflow.com/users/8553186/tim-baker'},
-  {label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/xiangbo-gao-9ab24417a/'},
-  {label: 'X', Icon: FaTwitter, href: 'https://x.com/XiangboGao'},
-  {label: 'zhihu', Icon: SiZhihu, href: 'https://www.zhihu.com/people/gao-xiang-bo-35'},
-  
-  // {label: 'Instagram', Icon: InstagramIcon, href: 'https://www.instagram.com/tbakerx/'},
-  // {label: 'Twitter', Icon: TwitterIcon, href: 'https://twitter.com/TimBakerx'},
+  { label: 'Github', Icon: GithubIcon, href: 'https://github.com/XiangboGaoBarry' },
+  { label: 'LinkedIn', Icon: LinkedInIcon, href: 'https://www.linkedin.com/in/xiangbo-gao-9ab24417a/' },
+  { label: 'X', Icon: FaTwitter, href: 'https://x.com/XiangboGao' },
+  { label: 'zhihu', Icon: SiZhihu, href: 'https://www.zhihu.com/people/gao-xiang-bo-35' },
 ];
-
-
-
-export const services: Service[] = [
-  {
-    title: 'Conference and Journal Paper Reviewing',
-    description: (
-    <ul className="cv-def-list">
-      <li>
-        <span className="cv-def-term">CV & ML:</span>
-        <span className="cv-def-desc ital">ICCV, CVPR, ICLR, NeurIPS, T-PAMI</span>
-      </li>
-      <li>
-        <span className="cv-def-term">Robotics:</span>
-        <span className="cv-def-desc ital">RA-L</span>
-      </li>
-      <li>
-        <span className="cv-def-term">Transportation:</span>
-        <span className="cv-def-desc ital">TRBAM</span>
-      </li>
-    </ul>
-    ),
-    date: '',
-    },
-    {
-    title: 'Program Committee Member',
-    description: (
-    <ul className="cv-def-list">
-      <li>
-        <a className="italic text-cyan-700 hover:not-italic" href="https://drivex-workshop.github.io/">
-          2nd DriveX Workshop @ CVPR 2025
-        </a>
-      </li>
-    </ul>
-    ),
-    date: '',
-    },
-    {
-    title: 'Invited Speaker',
-    description: (
-    <ul className="cv-def-list">
-      <li>
-        <a className="italic text-cyan-700 hover:not-italic" href="https://coop-intelligence.github.io/">
-          Invited Talk @ MEIS Workshop, CVPR 2025
-        </a>
-      </li>
-      <li>
-        Invited Talk @ Large Language Model Applications in Civil Engineering Workshop, 2025
-      </li>
-    </ul>
-    ),
-    date: '',
-    }
-]
-
-
-
-// export const publicationData = selected;                    // 已有的 selected Publications
-export const publicationData = autoPublications; 
-export const scholarMetrics: ScholarMetrics = autoScholarMetrics;
-export const aboutItem = aboutData;
-export const employmentItem = employment; // 工作经历
-export const competitionItem = competitions; // 竞赛经历
-export const contactItem = contact; // 联系方式
-export const socialLinksItem = socialLinks; // 社交链接
-
-// export const timelineData    = [...education, ...experience]; // 合并时间线
-export const timelineData    = [...education, ]; // 合并时间线

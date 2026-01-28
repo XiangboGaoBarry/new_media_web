@@ -27,7 +27,9 @@ const nextConfig = {
   reactStrictMode: true,
   trailingSlash: false,
   eslint: { ignoreDuringBuilds: true },
+  output: 'export',
   images: {
+    unoptimized: true,
     domains: ['images.unsplash.com', 'source.unsplash.com'],
   },
 };

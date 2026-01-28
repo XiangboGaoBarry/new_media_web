@@ -3,17 +3,17 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
-    "update:pubs": "node scripts/updatePublications.mjs",
-    "build": "yarn compile && yarn next build",
+    "update:pubs": "export PATH=/Users/gaoxiangbo/.nvm/versions/node/v18.18.0/bin/:$PATH && node scripts/updatePublications.mjs",
+    "build": "export PATH=/Users/gaoxiangbo/.nvm/versions/node/v18.18.0/bin/:$PATH && yarn compile && /Users/gaoxiangbo/.nvm/versions/node/v18.18.0/bin/node node_modules/next/dist/bin/next build",
     "clean": "rm -rf build-tsc .next",
-    "compile": "yarn run -T tsc --build --verbose",
-    "dev": "yarn compile && yarn next dev",
-    "lint": "yarn run -T prettier --write './src/**/*.{js,jsx,json,ts,tsx}' && eslint './src/**/*.{js,jsx,ts,tsx}' --fix --max-warnings=0",
-    "start": "yarn next start",
-    "sitemap": "yarn next-sitemap"
+    "compile": "export PATH=/Users/gaoxiangbo/.nvm/versions/node/v18.18.0/bin/:$PATH && yarn run -T tsc --build --verbose",
+    "dev": "export PATH=/Users/gaoxiangbo/.nvm/versions/node/v18.18.0/bin/:$PATH && yarn compile && yarn next dev",
+    "lint": "export PATH=/Users/gaoxiangbo/.nvm/versions/node/v18.18.0/bin/:$PATH && yarn run -T prettier --write './src/**/*.{js,jsx,json,ts,tsx}' && eslint './src/**/*.{js,jsx,ts,tsx}' --fix --max-warnings=0",
+    "start": "python3 -m http.server -d out 3000",
+    "sitemap": "export PATH=/Users/gaoxiangbo/.nvm/versions/node/v18.18.0/bin/:$PATH && yarn next-sitemap"
   },
   "engines": {
-    "node": ">=22.0.0"
+    "node": ">=18.0.0"
   },
   "dependencies": {
     "@headlessui/react": "^1.5.0",
